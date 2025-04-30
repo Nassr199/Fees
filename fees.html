@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">الشروق لمواد البناء - حاسبة الرسوم للمتجر</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://www2.0zz0.com/2025/04/29/23/183916568.png" type="image/png">
+    <style>
+        /* --- المتغيرات الأساسية --- */
+        :root {
+             --font-primary: 'Tajawal', sans-serif; --clr-primary-hue: 210; --clr-primary-saturation: 75%; --clr-primary-lightness-light: 55%; --clr-primary-lightness-dark: 45%; --clr-primary-light: hsl(var(--clr-primary-hue), var(--clr-primary-saturation), var(--clr-primary-lightness-light)); --clr-primary-dark: hsl(var(--clr-primary-hue), var(--clr-primary-saturation), var(--clr-primary-lightness-dark)); --clr-primary-hover-light: hsl(var(--clr-primary-hue), var(--clr-primary-saturation), 50%); --clr-primary-hover-dark: hsl(var(--clr-primary-hue), var(--clr-primary-saturation), 40%); --clr-primary-focus-ring-light: hsla(var(--clr-primary-hue), var(--clr-primary-saturation), 50%, 0.3); --clr-primary-focus-ring-dark: hsla(var(--clr-primary-hue), var(--clr-primary-saturation), 60%, 0.4); --clr-gray-50: #f9fafb; --clr-gray-100: #f3f4f6; --clr-gray-200: #e5e7eb; --clr-gray-300: #d1d5db; --clr-gray-400: #9ca3af; --clr-gray-500: #6b7280; --clr-gray-600: #4b5563; --clr-gray-700: #374151; --clr-gray-800: #1f2937; --clr-gray-900: #111827; --clr-gray-950: #0c101b; --clr-warm-white: hsl(36, 30%, 98%); --clr-soft-beige: hsl(36, 25%, 95%); --clr-warm-border: hsl(36, 20%, 88%); --clr-warm-border-input: hsl(36, 20%, 85%); --clr-bg-light: var(--clr-soft-beige); --clr-surface-light: var(--clr-warm-white); --clr-input-bg-light: var(--clr-warm-white); --clr-text-light: var(--clr-gray-900); --clr-text-muted-light: var(--clr-gray-600); --clr-border-light: var(--clr-warm-border); --clr-input-border-light: var(--clr-warm-border-input); --clr-input-focus-border-light: var(--clr-primary-light); --clr-success-light: var(--clr-success); --clr-warning-light: var(--clr-warning); --clr-bg-dark: var(--clr-gray-950); --clr-surface-dark: var(--clr-gray-900); --clr-input-bg-dark: var(--clr-gray-800); --clr-text-dark: var(--clr-gray-100); --clr-text-muted-dark: var(--clr-gray-400); --clr-border-dark: var(--clr-gray-700); --clr-input-border-dark: var(--clr-gray-600); --clr-input-focus-border-dark: var(--clr-primary-dark); --clr-success-dark: #34d399; --clr-warning-dark: #f87171; --clr-white: #ffffff; --clr-black: #000000; --clr-success: #10b981; --clr-warning: #ef4444; --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-xl: 16px; --shadow-color-light: rgba(90, 70, 50, 0.06); --shadow-color-md-light: rgba(90, 70, 50, 0.09); --shadow-color-lg-light: rgba(90, 70, 50, 0.13); --shadow-color-dark: rgba(0, 0, 0, 0.15); --shadow-color-md-dark: rgba(0, 0, 0, 0.25); --shadow-color-lg-dark: rgba(0, 0, 0, 0.35); --shadow-xs-light: 0 1px 2px var(--shadow-color-light); --shadow-sm-light: 0 2px 4px var(--shadow-color-light), 0 1px 2px var(--shadow-color-light); --shadow-md-light: 0 4px 8px var(--shadow-color-md-light), 0 2px 4px var(--shadow-color-light); --shadow-lg-light: 0 8px 16px var(--shadow-color-lg-light), 0 4px 8px var(--shadow-color-md-light); --shadow-xl-light: 0 12px 24px var(--shadow-color-lg-light), 0 6px 12px var(--shadow-color-md-light); --shadow-xs-dark: 0 1px 2px var(--shadow-color-dark); --shadow-sm-dark: 0 2px 4px var(--shadow-color-dark), 0 1px 2px var(--shadow-color-dark); --shadow-md-dark: 0 4px 8px var(--shadow-color-md-dark), 0 2px 4px var(--shadow-color-dark); --shadow-lg-dark: 0 8px 16px var(--shadow-color-lg-dark), 0 4px 8px var(--shadow-color-md-dark); --shadow-xl-dark: 0 12px 24px var(--shadow-color-lg-dark), 0 6px 12px var(--shadow-color-md-dark); --transition: 0.25s ease-out; --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-7: 1.75rem; --space-8: 2rem; --space-9: 2.5rem; --space-10: 3rem; --space-11: 3.5rem; --space-12: 4rem; --font-size-xs: 0.75rem; --font-size-sm: 0.875rem; --font-size-base: 1rem; --font-size-md: 1.125rem; --font-size-lg: 1.25rem; --font-size-xl: 1.5rem; --font-size-xxl: 1.875rem; --font-size-display: clamp(2.25rem, 6vw, 3.5rem);
+        }
+        [data-theme="light"] { --clr-primary-current: var(--clr-primary-light); --clr-primary-hover-current: var(--clr-primary-hover-light); --clr-primary-focus-ring-current: var(--clr-primary-focus-ring-light); --clr-bg-current: var(--clr-bg-light); --clr-surface-current: var(--clr-surface-light); --clr-sidebar-bg-current: var(--clr-sidebar-bg-light); --clr-input-bg-current: var(--clr-input-bg-light); --clr-input-focus-bg-current: var(--clr-input-focus-bg-light); --clr-text-current: var(--clr-text-light); --clr-text-muted-current: var(--clr-text-muted-light); --clr-border-current: var(--clr-border-light); --clr-input-border-current: var(--clr-input-border-light); --clr-input-focus-border-current: var(--clr-input-focus-border-light); --clr-success-current: var(--clr-success-light); --clr-warning-current: var(--clr-warning-light); --shadow-xs-current: var(--shadow-xs-light); --shadow-sm-current: var(--shadow-sm-light); --shadow-md-current: var(--shadow-md-light); --shadow-lg-current: var(--shadow-lg-light); --shadow-xl-current: var(--shadow-xl-light); --note-bg-current: color-mix(in srgb, var(--clr-primary-light) 5%, transparent); --note-border-current: color-mix(in srgb, var(--clr-primary-light) 20%, transparent); }
+        [data-theme="dark"] { --clr-primary-current: var(--clr-primary-dark); --clr-primary-hover-current: var(--clr-primary-hover-dark); --clr-primary-focus-ring-current: var(--clr-primary-focus-ring-dark); --clr-bg-current: var(--clr-bg-dark); --clr-surface-current: var(--clr-surface-dark); --clr-sidebar-bg-current: var(--clr-sidebar-bg-dark); --clr-input-bg-current: var(--clr-input-bg-dark); --clr-input-focus-bg-current: var(--clr-input-focus-bg-dark); --clr-text-current: var(--clr-text-dark); --clr-text-muted-current: var(--clr-text-muted-dark); --clr-border-current: var(--clr-border-dark); --clr-input-border-current: var(--clr-input-border-dark); --clr-input-focus-border-current: var(--clr-input-focus-border-dark); --clr-success-current: var(--clr-success-dark); --clr-warning-current: var(--clr-warning-dark); --shadow-xs-current: var(--shadow-xs-dark); --shadow-sm-current: var(--shadow-sm-dark); --shadow-md-current: var(--shadow-md-dark); --shadow-lg-current: var(--shadow-lg-dark); --shadow-xl-current: var(--shadow-xl-dark); --note-bg-current: color-mix(in srgb, var(--clr-primary-dark) 15%, #00000080); --note-border-current: color-mix(in srgb, var(--clr-primary-dark) 30%, transparent); }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; } html { scroll-behavior: smooth; font-size: 100%; -webkit-tap-highlight-color: transparent; } body { font-family: var(--font-primary); background: var(--clr-bg-current); color: var(--clr-text-current); min-height: 100vh; display: flex; flex-direction: column; transition: background var(--transition), color var(--transition); line-height: 1.7; font-size: var(--font-size-base); overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; } img, svg { max-width: 100%; height: auto; display: block; vertical-align: middle; } svg { width: 1.1em; height: 1.1em; fill: currentColor; display: inline-block; vertical-align: -0.15em; margin-inline-end: 0.4em; } button { background: none; border: none; padding: 0; font: inherit; color: inherit; cursor: pointer; } .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } } @keyframes slideInUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } } @keyframes valueUpdate { 0% { transform: scale(1); color: var(--clr-text-current); } 40% { transform: scale(1.15); color: var(--clr-primary-current); } 100% { transform: scale(1); color: var(--clr-primary-current); } }
+        .page-wrapper { position: relative; width: 100%; flex-grow: 1; display: flex; flex-direction: column; animation: fadeIn 0.5s ease-out; }
+        .global-controls { position: fixed; top: var(--space-4); inset-inline-end: var(--space-4); z-index: 1000; display: flex; gap: var(--space-3); }
+        .global-controls button { padding: var(--space-2) var(--space-3); border: 1px solid var(--clr-border-current); border-radius: var(--radius-md); background: var(--clr-surface-current); color: var(--clr-text-muted-current); cursor: pointer; transition: all var(--transition); font-size: var(--font-size-sm); font-weight: 500; box-shadow: var(--shadow-sm-current); display: inline-flex; align-items: center; gap: var(--space-2); white-space: nowrap; }
+        .global-controls button:hover { border-color: var(--clr-primary-current); color: var(--clr-primary-current); background: color-mix(in srgb, var(--clr-primary-current) 10%, transparent); transform: translateY(-1px) scale(1.02); box-shadow: var(--shadow-md-current); }
+        .global-controls button svg { margin: 0; }
+        .main-container { width: 100%; max-width: 1440px; margin: var(--space-8) auto 0; padding: 0 var(--space-6); padding-top: var(--space-10); flex-grow: 1; display: flex; flex-direction: column; gap: var(--space-8); }
+        .sidebar { background: var(--clr-surface-current); padding: var(--space-7); border-radius: var(--radius-xl); box-shadow: var(--shadow-md-current); border: 1px solid var(--clr-border-current); transition: background var(--transition), border-color var(--transition), box-shadow var(--transition); animation: slideInUp 0.5s ease-out backwards; position: relative; display: flex; flex-direction: column; }
+        .sidebar-logo-container { display: flex; justify-content: center; align-items: center; width: 80%; max-width: 280px; margin: 0 auto var(--space-6); padding-bottom: var(--space-5); border-bottom: 1px solid var(--clr-border-current); }
+        #storeLogo { height: clamp(120px, 28vw, 200px); width: auto; object-fit: contain; border-radius: var(--radius-md); transition: transform var(--transition), box-shadow var(--transition); }
+        #storeLogo:hover { transform: scale(1.03); box-shadow: var(--shadow-lg-current); }
+        .controls { display: flex; align-items: center; justify-content: center; gap: var(--space-4); margin-top: var(--space-2); margin-bottom: var(--space-7); padding-bottom: var(--space-5); border-bottom: 1px dashed var(--clr-border-current); }
+        .controls button { padding: var(--space-2) var(--space-3); border: 1px solid var(--clr-border-current); border-radius: var(--radius-md); background: var(--clr-surface-current); color: var(--clr-text-muted-current); cursor: pointer; transition: all var(--transition); font-size: var(--font-size-sm); font-weight: 500; box-shadow: var(--shadow-xs-current); display: inline-flex; align-items: center; gap: var(--space-2); white-space: nowrap; }
+        .controls button:hover { border-color: var(--clr-primary-current); color: var(--clr-primary-current); background: color-mix(in srgb, var(--clr-primary-current) 10%, transparent); transform: translateY(-1px) scale(1.02); box-shadow: var(--shadow-md-current); }
+        .controls button svg { margin: 0; }
+        .sidebar-content-wrapper { display: flex; flex-direction: column; gap: var(--space-5); margin-bottom: var(--space-6); margin-top: 0; }
+        .sidebar-title { font-size: var(--font-size-xl); font-weight: 700; color: var(--clr-primary-current); text-align: center; margin: 0; }
+        .input-wrapper { width: 100%; max-width: 420px; text-align: center; margin: 0 auto; }
+        .input-wrapper label { font-size: var(--font-size-base); font-weight: 500; color: var(--clr-text-muted-current); margin-bottom: var(--space-3); display: block; transition: color var(--transition); }
+        .input-wrapper input:focus + label { color: var(--clr-primary-current); }
+        .input-wrapper input { width: 100%; padding: var(--space-4); font-size: var(--font-size-lg); font-weight: 700; border: 1px solid var(--clr-input-border-current); border-radius: var(--radius-md); text-align: center; background-color: var(--clr-input-bg-current); color: var(--clr-text-current); transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition); box-shadow: var(--shadow-sm-current); }
+        .input-wrapper input::placeholder { color: var(--clr-text-muted-current); opacity: 0.6; }
+        .input-wrapper input:focus { border-color: var(--clr-input-focus-border-current); outline: none; box-shadow: 0 0 0 4px var(--clr-primary-focus-ring-current), var(--shadow-md-current); background-color: var(--clr-input-focus-bg-current); }
+        .note { border: 1px solid var(--note-border-current); background: var(--note-bg-current); border-inline-start: 4px solid var(--clr-primary-current); color: var(--clr-text-muted-current); padding: var(--space-4); border-radius: var(--radius-md); margin-top: var(--space-7); font-size: var(--font-size-sm); line-height: 1.7; box-shadow: none; transition: background var(--transition), border-color var(--transition), color var(--transition); }
+        .note strong { color: var(--clr-text-current); font-weight: 700; }
+        .main-content-area { animation: slideInUp 0.6s ease-out backwards; animation-delay: 0.1s; }
+        .cards { display: grid; gap: var(--space-7); grid-template-columns: 1fr; }
+        .card { background: var(--clr-surface-current); border: 1px solid var(--clr-border-current); border-radius: var(--radius-xl); padding: var(--space-7); transition: all var(--transition); box-shadow: var(--shadow-md-current); display: flex; flex-direction: column; }
+        .card:hover { box-shadow: var(--shadow-xl-current); border-color: var(--clr-border-current); transform: translateY(-4px); }
+        .card-header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-6); padding-bottom: var(--space-5); border-bottom: 1px solid var(--clr-border-current); }
+        .card-header h2 { font-size: var(--font-size-lg); font-weight: 700; color: var(--clr-text-current); order: 1; flex-grow: 1; }
+        .card-header img { height: 40px; width: auto; object-fit: contain; order: 2; border-radius: var(--radius-sm); background: var(--clr-white); padding: var(--space-1); box-shadow: var(--shadow-xs-current); transition: transform var(--transition), box-shadow var(--transition); }
+        .card-header img:hover { transform: scale(1.1); box-shadow: var(--shadow-md-current); }
+        .result { list-style: none; padding: 0; flex-grow: 1; display: flex; flex-direction: column;}
+        .result li { display: flex; justify-content: space-between; align-items: center; gap: var(--space-5); margin-bottom: var(--space-4); padding-bottom: var(--space-3); border-bottom: 1px dashed var(--clr-border-current); transition: border-color var(--transition); }
+        .result li:last-of-type { margin-bottom: 0; border-bottom: none; }
+        .label { font-weight: 500; color: var(--clr-text-muted-current); font-size: var(--font-size-base); white-space: normal; text-align: start; flex-shrink: 1; }
+        .value { font-weight: 700; text-align: end; font-size: var(--font-size-xl); font-feature-settings: "tnum"; letter-spacing: 0.5px; transition: color var(--transition), transform var(--transition); display: inline-block; white-space: nowrap; flex-shrink: 0; }
+        .value.updated { animation: valueUpdate 0.5s ease-out; }
+        /* --- تطبيق الألوان للقيم --- */
+        .value.info { color: var(--clr-text-current); font-weight: 500; }
+        .value.warning { color: var(--clr-warning-current); }
+        .value.primary { color: var(--clr-primary-current); }
+        .value.success { color: var(--clr-success-current); }
+        .page-footer { text-align: center; padding: var(--space-8) var(--space-6); margin-top: auto; font-size: var(--font-size-sm); color: var(--clr-text-muted-current); border-top: 1px solid var(--clr-border-current); background: var(--clr-surface-current); transition: background var(--transition), border-color var(--transition), color var(--transition); }
+        @media (min-width: 992px) { .main-container { flex-direction: row; gap: var(--space-9); align-items: flex-start; margin-top: var(--space-8); padding-top: 0;} .sidebar { display: flex; flex-direction: column; flex: 1; max-width: 450px; padding: var(--space-8); position: sticky; top: var(--space-8); align-self: flex-start; max-height: calc(100vh - var(--space-8) * 2); overflow-y: auto; } .sidebar::-webkit-scrollbar { width: 6px; } .sidebar::-webkit-scrollbar-thumb { background-color: var(--clr-border-current); border-radius: 3px;} .sidebar-logo-container { width: 80%; max-width: 320px; margin: 0 auto var(--space-7); padding-bottom: var(--space-6); } #storeLogo { height: clamp(120px, 28vw, 200px); } .controls { margin-bottom: var(--space-7); } .sidebar-content-wrapper { gap: var(--space-7); margin-bottom: var(--space-8); margin-top: 0; } .sidebar-title { text-align: center; font-size: var(--font-size-xl); margin-bottom: 0; } .input-wrapper { max-width: none; text-align: start; margin: 0 auto; } .input-wrapper label { text-align: center; } .note { margin-top: auto; padding: var(--space-5); } .main-content-area { flex: 1.5; min-width: 0; } .results-section .cards { grid-template-columns: 1fr 1fr; gap: var(--space-8); } .card { padding: var(--space-8); } .result li { font-size: var(--font-size-base); margin-bottom: var(--space-4); padding-bottom: var(--space-3); } .value { font-size: var(--font-size-xl); } .page-footer { padding: var(--space-9) var(--space-8); } }
+        @media (min-width: 601px) and (max-width: 991px) { .main-container { padding: var(--space-8) var(--space-6); padding-top: 0; gap: var(--space-8); margin-top: var(--space-8);} .sidebar { padding: var(--space-7); } .sidebar-logo-container { width: 70%; margin-bottom: var(--space-6); padding-bottom: var(--space-5); } .controls { margin-bottom: var(--space-6); } .sidebar-content-wrapper { margin-bottom: var(--space-7); gap: var(--space-6); margin-top: 0;} .sidebar-title { margin-bottom: 0; } .note { margin-top: var(--space-8); } .results-section .cards { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-7); } .card { padding: var(--space-7); } }
+        @media (max-width: 600px) { .global-controls { display: none; } body { font-size: 0.95rem; } .main-container { padding: var(--space-4); gap: var(--space-5); margin-top: var(--space-6); } .sidebar { padding: var(--space-4); border-radius: var(--radius-lg); } .sidebar-logo-container { width: 80%; margin-bottom: var(--space-4); padding-bottom: var(--space-4); } .controls { margin-bottom: var(--space-5); gap: var(--space-3); padding-bottom: var(--space-3);} .controls button { padding: var(--space-2); font-size: var(--font-size-xs); } .sidebar-content-wrapper { margin-bottom: var(--space-4); gap: var(--space-3); margin-top: 0; } .sidebar-title { font-size: var(--font-size-lg); margin-bottom: 0; } .input-wrapper label { margin-bottom: var(--space-2); font-size: var(--font-size-sm); } .input-wrapper input { font-size: var(--font-size-md); padding: var(--space-3); } .note { margin-top: var(--space-6); padding: var(--space-3); font-size: 0.8rem; } .cards { gap: var(--space-5); } .card { padding: var(--space-5); border-radius: var(--radius-lg); } .card-header { margin-bottom: var(--space-4); padding-bottom: var(--space-3); gap: var(--space-3); } .card-header h2 { font-size: var(--font-size-md); } .card-header img { height: 30px; } .result li { gap: var(--space-3); margin-bottom: var(--space-2); padding-bottom: var(--space-2); } .label { font-size: var(--font-size-base); } .value { font-size: var(--font-size-xl); } .page-footer { padding: var(--space-5) var(--space-4); font-size: var(--font-size-xs); } }
+
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="main-container">
+            <aside class="sidebar input-section">
+                <div class="sidebar-logo-container">
+                     <img src="https://www2.0zz0.com/2025/04/29/23/183916568.png" alt="شعار الشروق لمواد البناء" id="storeLogo">
+                </div>
+                 <div class="controls">
+                    <button id="btn-lang" title="تغيير اللغة">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+                        <span class="lang-text">English</span>
+                    </button>
+                    <button id="btn-theme" title="تغيير السمة">
+                        <span class="theme-icon-wrapper"></span>
+                        <span class="theme-text">ليلي</span>
+                    </button>
+                </div>
+                 <div class="sidebar-content-wrapper">
+                    <h1 class="sidebar-title" id="title">آلة حاسبة لرسوم الدفع الآجل</h1>
+                    <div class="input-wrapper">
+                        <label for="price" data-key="inputLabel">أدخل سعر المنتج الإجمالي</label>
+                        <input type="text" id="price" inputmode="decimal" placeholder="0.00 ر.س">
+                    </div>
+                </div>
+                <div class="note" id="note">
+                   </div>
+            </aside>
+
+            <main class="main-content-area results-section">
+                <div class="cards">
+                    <div class="card" id="tabbyCard">
+                        <div class="card-header">
+                            <h2 data-provider="tabby">تابي (Tabby)</h2>
+                            <img src="https://cdn.salla.sa/BmwbV/Ea1Kx4SfpK2Vy3Lx3aVPvZKBMkSM5dio2eKveTwm.png" alt="شعار تابي">
+                        </div>
+                        <ul class="result">
+                            <li><span class="label" data-key="baseFeeLabel">رسوم الخدمة (7% + 1.5 ر.س)</span> <span class="value info base">0.00 ر.س</span></li>
+                            <li><span class="label" data-key="vatLabel">ضريبة القيمة المضافة (15%)</span> <span class="value info vat">0.00 ر.س</span></li>
+                            <li><span class="label" data-key="totalServiceFeeLabel">إجمالي رسوم الخدمة</span> <span class="value warning serviceFee">0.00 ر.س</span></li>
+                            <li><span class="label" data-key="settlementFeeLabel">رسوم التسوية/التحويل</span> <span class="value warning settlementFee">0.00 ر.س</span></li>
+                            <li><span class="label" data-key="totalAmountDueLabel">المبلغ المطلوب من العميل</span> <span class="value primary charge">0.00 ر.س</span></li>
+                            <li><span class="label" data-key="netProfitLabel">صافي ربح المتجر</span> <span class="value success net">0.00 ر.س</span></li>
+                        </ul>
+                    </div>
+                    <div class="card" id="tamaraCard">
+                        <div class="card-header">
+                            <h2 data-provider="tamara">تمارا (Tamara)</h2>
+                            <img src="https://cdn.tamara.co/assets/png/tamara-logo-badge-en.png" alt="شعار تمارا">
+                        </div>
+                        <ul class="result">
+                             <li><span class="label" data-key="baseFeeLabel">رسوم الخدمة (7% + 1.5 ر.س)</span> <span class="value info base">0.00 ر.س</span></li>
+                             <li><span class="label" data-key="vatLabel">ضريبة القيمة المضافة (15%)</span> <span class="value info vat">0.00 ر.س</span></li>
+                             <li><span class="label" data-key="totalServiceFeeLabel">إجمالي رسوم الخدمة</span> <span class="value warning serviceFee">0.00 ر.س</span></li>
+                             <li><span class="label" data-key="settlementFeeLabel">رسوم التسوية/التحويل</span> <span class="value warning settlementFee">0.00 ر.س</span></li>
+                             <li><span class="label" data-key="totalAmountDueLabel">المبلغ المطلوب من العميل</span> <span class="value primary charge">0.00 ر.س</span></li>
+                             <li><span class="label" data-key="netProfitLabel">صافي ربح المتجر</span> <span class="value success net">0.00 ر.س</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer class="page-footer">
+            © <span id="year"></span> الشروق لمواد البناء. جميع الحقوق محفوظة.
+        </footer>
+    </div> <script>
+         document.addEventListener('DOMContentLoaded', () => {
+            console.log("DOM fully loaded and parsed - v14 (Final Label Fixes)");
+
+            // --- Get Elements ---
+            const priceInput = document.getElementById('price');
+            const btnLang = document.getElementById('btn-lang');
+            const btnTheme = document.getElementById('btn-theme');
+            const themeIconWrapper = btnTheme ? btnTheme.querySelector('.theme-icon-wrapper') : null;
+            const langTextEl = btnLang ? btnLang.querySelector('.lang-text') : null;
+            const themeTextEl = btnTheme ? btnTheme.querySelector('.theme-text') : null;
+            const yearEl = document.getElementById('year');
+            const titleEl = document.querySelector('#title');
+            const noteEl = document.querySelector('#note');
+            const cards = document.querySelectorAll('.results-section .card');
+            const pageTitleTarget = document.getElementById('pageTitle');
+            const footerTextEl = document.querySelector('.page-footer');
+            const storeLogo = document.querySelector('#storeLogo');
+            const pageBody = document.body;
+
+            // --- SVG Icons ---
+            const moonIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em" aria-label="وضع ليلي"><path d="M10 2c-1.82 0-3.53.5-5 1.35C7.99 5.08 10 8.3 10 12s-2.01 6.92-5 8.65C6.47 21.5 8.18 22 10 22c5.52 0 10-4.48 10-10S15.52 2 10 2z"/></svg>`;
+            const sunIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em" aria-label="وضع نهاري"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM12 4c-0.55 0-1 0.45-1 1v1c0 0.55 0.45 1 1 1s1-0.45 1-1V5c0-0.55-0.45-1-1-1zM4 12c0 0.55-0.45 1-1 1H2c-0.55 0-1-0.45-1-1s0.45-1 1-1h1c0.55 0 1 0.45 1 1zM20 12c0 0.55-0.45 1-1 1h-1c-0.55 0-1-0.45-1-1s0.45-1 1-1h1c0.55 0 1 0.45 1 1zM7.05 7.05c-0.39-0.39-1.02-0.39-1.41 0s-0.39 1.02 0 1.41l0.71 0.71c0.39 0.39 1.02 0.39 1.41 0s0.39-1.02 0-1.41L7.05 7.05zM16.24 16.24c-0.39-0.39-1.02-0.39-1.41 0s-0.39 1.02 0 1.41l0.71 0.71c0.39 0.39 1.02 0.39 1.41 0s0.39-1.02 0-1.41L16.24 16.24zM12 19c-0.55 0-1 0.45-1 1v1c0 0.55 0.45 1 1 1s1-0.45 1-1v-1c0-0.55-0.45-1-1-1zM6.34 16.95l-0.71 0.71c-0.39 0.39-0.39 1.02 0 1.41s1.02 0.39 1.41 0l0.71-0.71c0.39-0.39 0.39-1.02 0-1.41S6.73 16.56 6.34 16.95zM16.95 6.34l0.71-0.71c0.39-0.39 0.39-1.02 0-1.41s-1.02-0.39-1.41 0l-0.71 0.71c-0.39 0.39-0.39 1.02 0-1.41S16.56 6.73 16.95 6.34z"/></svg>`;
+            const langIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>`;
+
+            // --- Localization Strings (Labels reverted to original, Note reverted) ---
+             const i18n = {
+                 ar: {
+                     pageTitle: "الشروق لمواد البناء - حاسبة رسوم المتجر",
+                     mainTitle: "آلة حاسبة لرسوم الدفع الآجل",
+                     inputLabel: "أدخل سعر المنتج الإجمالي", // Original Label
+                     pricePlaceholder: "0.00 ر.س",
+                     note: `ملاحظة: للمبالغ من 1 إلى 2499 ر.س رسوم تسوية ثابتة <strong>28.75 ر.س</strong>. للمبالغ من 2500 ر.س فما فوق تطبق رسوم تحويل بنكي قدرها <strong>6 ر.س</strong> فقط لاغير.`, // Original Note
+                     themeToggle: "تغيير السمة", langToggle: "تغيير اللغة", themeNight: "ليلي", themeDay: "نهاري", langSwitchTo: "English",
+                     footer: `© ${new Date().getFullYear()} الشروق لمواد البناء. جميع الحقوق محفوظة.`, currencySuffix: " ر.س",
+                     tabby: "تابي (Tabby)", tamara: "تمارا (Tamara)",
+                     labels: [ // Original labels with VAT fix
+                         'رسوم الخدمة (7% + 1.5 ر.س)',
+                         'ضريبة القيمة المضافة (15%)', // Reverted
+                         'إجمالي رسوم الخدمة',
+                         'رسوم التسوية/التحويل',
+                         'المبلغ المطلوب من العميل',
+                         'صافي ربح المتجر'
+                     ],
+                     labelKeys: [ 'baseFeeLabel', 'vatLabel', 'totalServiceFeeLabel', 'settlementFeeLabel', 'totalAmountDueLabel', 'netProfitLabel' ]
+                 },
+                 en: {
+                     pageTitle: "Al-Shorouq Building Materials - Merchant Fee Calculator",
+                     mainTitle: "Deferred Payment Fee Calculator",
+                     inputLabel: "Enter Base Product Price", // Original Label
+                     pricePlaceholder: "0.00 SAR",
+                     note: `Note: For amounts from 1 to 2499 SAR flat settlement fee is <strong>28.75 SAR</strong>. For amounts 2500 SAR and above bank transfer fee is <strong>6 SAR</strong> only.`, // Original Note
+                     themeToggle: "Change Theme", langToggle: "Change Language", themeNight: "Night", themeDay: "Day", langSwitchTo: "عربي",
+                     footer: `© ${new Date().getFullYear()} Al-Shorouq Building Materials. All rights reserved.`, currencySuffix: " SAR",
+                     tabby: "Tabby", tamara: "Tamara",
+                     labels: [ // Original labels with VAT fix
+                         'Service Fee (7% + 1.5 SAR)',
+                         'VAT (15%)', // Reverted
+                         'Total Service Fees',
+                         'Settlement/Transfer Fee',
+                         'Amount Customer Pays',
+                         'Net Merchant Profit'
+                     ],
+                     labelKeys: [ 'baseFeeLabel', 'vatLabel', 'totalServiceFeeLabel', 'settlementFeeLabel', 'totalAmountDueLabel', 'netProfitLabel' ]
+                 }
+             };
+
+
+            // --- State ---
+            let currentTheme = localStorage.getItem('calculatorThemeFluentV2') || 'light';
+            let currentLang = localStorage.getItem('calculatorLangFluentV2') || 'ar';
+
+            // --- Core Functions ---
+            function applyTheme() { if(pageBody) pageBody.setAttribute('data-theme', currentTheme); updateThemeButtonVisuals(); }
+            function applyLang() { try { const langData = i18n[currentLang]; if(document.documentElement) { document.documentElement.lang = currentLang; document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr'; } if(pageTitleTarget) pageTitleTarget.textContent = langData.pageTitle; if (titleEl) titleEl.textContent = langData.mainTitle; const priceLabelEl = document.querySelector('.input-wrapper label[for="price"]'); if(priceLabelEl) priceLabelEl.textContent = langData.inputLabel; if(priceInput) priceInput.placeholder = langData.pricePlaceholder; if(noteEl) noteEl.innerHTML = langData.note; if(footerTextEl) { const currentYear = new Date().getFullYear(); const footerBaseText = langData.footer.replace(currentYear.toString(), '').replace('© . ', `© ${currentYear} `); footerTextEl.innerHTML = `${footerBaseText}`; } if (btnLang) btnLang.title = langData.langToggle; if (btnTheme) btnTheme.title = langData.themeToggle; updateLabels(); updateThemeButtonVisuals(); updateLangButtonVisuals(); } catch (error) { console.error("Error during applyLang:", error); } }
+             function updateLabels() { const labels = i18n[currentLang].labels; const labelKeys = i18n[currentLang].labelKeys; if (!cards || !labels || !labelKeys || labels.length !== labelKeys.length) { console.error("Labels or cards data missing or mismatched."); return; } cards.forEach(card => { labelKeys.forEach((key, index) => { const labelEl = card.querySelector(`.label[data-key="${key}"]`); if (labelEl) { labelEl.textContent = labels[index]; } else { console.warn(`Label element with data-key="${key}" not found in card:`, card.id); } }); const h2 = card.querySelector('h2'); const provider = h2?.getAttribute('data-provider'); if(h2 && provider) { h2.textContent = provider === 'tabby' ? i18n[currentLang].tabby : i18n[currentLang].tamara; } }); }
+            function updateThemeButtonVisuals() { if(btnTheme && themeIconWrapper && themeTextEl) { themeIconWrapper.innerHTML = currentTheme === 'light' ? moonIcon : sunIcon; themeTextEl.textContent = currentTheme === 'light' ? i18n[currentLang].themeNight : i18n[currentLang].themeDay; } }
+            function updateLangButtonVisuals() { if (btnLang && langTextEl) { langTextEl.textContent = i18n[currentLang].langSwitchTo; const existingIcon = btnLang.querySelector('svg'); if (!existingIcon) { btnLang.insertAdjacentHTML('afterbegin', langIconSvg); } } }
+            function toggleTheme() { currentTheme = currentTheme === 'light' ? 'dark' : 'light'; localStorage.setItem('calculatorThemeFluentV2', currentTheme); applyTheme(); }
+            function switchLang() { currentLang = (currentLang === 'ar') ? 'en' : 'ar'; localStorage.setItem('calculatorLangFluentV2', currentLang); applyLang(); calculateFees(); }
+            function formatNumber(n) { const num = Number(n); if (isNaN(num)) { return '0.00'; } return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+
+            // --- CALCULATION FUNCTION (v10 Logic - Excludes S from X calc) ---
+             function calculateFees() {
+                 if (!priceInput || !cards) { console.warn("Missing elements for calculateFees"); return; }
+                 const rawValue = priceInput.value.replace(/[^0-9.]/g, '');
+                 const P = parseFloat(rawValue) || 0; // P = Base Product Price
+                 let X = 0; let baseFee = 0; let vat = 0; let totalServiceFee = 0; let S_final = 0;
+                 const fixedFee = 1.5; const serviceRate = 0.07; const vatRate = 0.15;
+                 const feeFactor = (1 + vatRate); const denominator = (1 - serviceRate * feeFactor); const fixedFeeComponent = fixedFee * feeFactor;
+                 if (P > 0 && denominator > 0) {
+                     X = (P + fixedFeeComponent) / denominator; if (X < 0) X = 0;
+                     if (X >= 1) { baseFee = X * serviceRate + fixedFee; vat = baseFee * vatRate; totalServiceFee = baseFee + vat; } else { baseFee = 0; vat = 0; totalServiceFee = 0; X=0; }
+                     if (X < 1) { S_final = 0; } else if (X < 2500) { S_final = 28.75; } else { S_final = 6.00; }
+                 } else { X = P; baseFee = 0; vat = 0; totalServiceFee = 0; S_final = 0; }
+                 const currencySuffix = i18n[currentLang]?.currencySuffix || 'SAR';
+                 cards.forEach(card => {
+                     const baseEl = card.querySelector('.base'); const vatEl = card.querySelector('.vat'); const serviceFeeEl = card.querySelector('.serviceFee'); const settlementFeeEl = card.querySelector('.settlementFee'); const chargeEl = card.querySelector('.charge'); const netEl = card.querySelector('.net');
+                     const updateValue = (el, value) => { if (el) { const formattedValue = formatNumber(value) + currencySuffix; const currentValue = el.textContent; if (currentValue !== formattedValue) { el.textContent = formattedValue; el.classList.remove('updated'); void el.offsetWidth; el.classList.add('updated'); el.addEventListener('animationend', () => { if(el) el.classList.remove('updated'); }, {once: true}); } } else { console.warn("UpdateValue: Target element not found for value:", value); } };
+                     // Apply values, ensuring elements exist
+                     if(baseEl) updateValue(baseEl, baseFee); else console.warn("Base fee element not found");
+                     if(vatEl) updateValue(vatEl, vat); else console.warn("VAT element not found");
+                     if(serviceFeeEl) updateValue(serviceFeeEl, totalServiceFee); else console.warn("Service fee element not found");
+                     if(settlementFeeEl) updateValue(settlementFeeEl, S_final); else console.warn("Settlement fee element not found");
+                     if(chargeEl) updateValue(chargeEl, X); else console.warn("Charge element not found");
+                     if(netEl) updateValue(netEl, P); else console.warn("Net element not found"); // Display original P as net
+                 });
+             }
+
+
+            // --- Event Listeners ---
+            if (priceInput) { priceInput.addEventListener('blur', () => { const num = parseFloat(priceInput.value.replace(/[^0-9.]/g, '')) || 0; priceInput.value = num > 0 ? formatNumber(num) : ''; calculateFees(); }); priceInput.addEventListener('input', calculateFees); priceInput.addEventListener('focus', () => { priceInput.select(); }); priceInput.addEventListener('keypress', (event) => { if (event.key === 'Enter') { event.preventDefault(); calculateFees(); priceInput.blur(); } }); } else { console.error("Price input not found"); }
+            if(btnTheme) { btnTheme.addEventListener('click', toggleTheme); } else { console.error("Theme button not found"); }
+            if(btnLang) { btnLang.addEventListener('click', switchLang); } else { console.error("Lang button not found"); }
+
+            // --- Initial Setup ---
+            if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+            applyTheme(); applyLang(); calculateFees();
+
+            // Apply Staggered Animations
+            const sidebarEl = document.querySelector('.sidebar'); const mainContentEl = document.querySelector('.main-content-area'); const cardsList = document.querySelectorAll('.results-section .card');
+            if (sidebarEl) sidebarEl.style.animationDelay = '0.1s'; if (mainContentEl) mainContentEl.style.animationDelay = '0.25s'; if (cardsList) cardsList.forEach((el, index) => { el.style.animationDelay = `${0.35 + index * 0.1}s`; });
+
+            // Add visually hidden class definition
+             try { const styleEl = document.createElement('style'); document.head.appendChild(styleEl); styleEl.sheet.insertRule('.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }', 0); } catch (e) { console.warn("Could not insert visually-hidden rule via JS:", e); }
+        });
+    </script>
+
+</body>
+</html>
