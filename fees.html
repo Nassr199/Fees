@@ -9,256 +9,627 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="https://www2.0zz0.com/2025/04/29/23/183916568.png" type="image/png">
     <style>
-        /* --- المتغيرات الأساسية --- */
-        :root {
-             --font-primary: 'Tajawal', sans-serif; --clr-primary-hue: 210; --clr-primary-saturation: 75%; --clr-primary-lightness-light: 55%; --clr-primary-lightness-dark: 45%; --clr-primary-light: hsl(var(--clr-primary-hue), var(--clr-primary-saturation), var(--clr-primary-lightness-light)); --clr-primary-dark: hsl(var(--clr-primary-hue), var(--clr-primary-saturation), var(--clr-primary-lightness-dark)); --clr-primary-hover-light: hsl(var(--clr-primary-hue), var(--clr-primary-saturation), 50%); --clr-primary-hover-dark: hsl(var(--clr-primary-hue), var(--clr-primary-saturation), 40%); --clr-primary-focus-ring-light: hsla(var(--clr-primary-hue), var(--clr-primary-saturation), 50%, 0.3); --clr-primary-focus-ring-dark: hsla(var(--clr-primary-hue), var(--clr-primary-saturation), 60%, 0.4); --clr-gray-50: #f9fafb; --clr-gray-100: #f3f4f6; --clr-gray-200: #e5e7eb; --clr-gray-300: #d1d5db; --clr-gray-400: #9ca3af; --clr-gray-500: #6b7280; --clr-gray-600: #4b5563; --clr-gray-700: #374151; --clr-gray-800: #1f2937; --clr-gray-900: #111827; --clr-gray-950: #0c101b; --clr-warm-white: hsl(36, 30%, 98%); --clr-soft-beige: hsl(36, 25%, 95%); --clr-warm-border: hsl(36, 20%, 88%); --clr-warm-border-input: hsl(36, 20%, 85%); --clr-bg-light: var(--clr-soft-beige); --clr-surface-light: var(--clr-warm-white); --clr-input-bg-light: var(--clr-warm-white); --clr-text-light: var(--clr-gray-900); --clr-text-muted-light: var(--clr-gray-600); --clr-border-light: var(--clr-warm-border); --clr-input-border-light: var(--clr-warm-border-input); --clr-input-focus-border-light: var(--clr-primary-light); --clr-success-light: var(--clr-success); --clr-warning-light: var(--clr-warning); --clr-bg-dark: var(--clr-gray-950); --clr-surface-dark: var(--clr-gray-900); --clr-input-bg-dark: var(--clr-gray-800); --clr-text-dark: var(--clr-gray-100); --clr-text-muted-dark: var(--clr-gray-400); --clr-border-dark: var(--clr-gray-700); --clr-input-border-dark: var(--clr-gray-600); --clr-input-focus-border-dark: var(--clr-primary-dark); --clr-success-dark: #34d399; --clr-warning-dark: #f87171; --clr-white: #ffffff; --clr-black: #000000; --clr-success: #10b981; --clr-warning: #ef4444; --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-xl: 16px; --shadow-color-light: rgba(90, 70, 50, 0.06); --shadow-color-md-light: rgba(90, 70, 50, 0.09); --shadow-color-lg-light: rgba(90, 70, 50, 0.13); --shadow-color-dark: rgba(0, 0, 0, 0.15); --shadow-color-md-dark: rgba(0, 0, 0, 0.25); --shadow-color-lg-dark: rgba(0, 0, 0, 0.35); --shadow-xs-light: 0 1px 2px var(--shadow-color-light); --shadow-sm-light: 0 2px 4px var(--shadow-color-light), 0 1px 2px var(--shadow-color-light); --shadow-md-light: 0 4px 8px var(--shadow-color-md-light), 0 2px 4px var(--shadow-color-light); --shadow-lg-light: 0 8px 16px var(--shadow-color-lg-light), 0 4px 8px var(--shadow-color-md-light); --shadow-xl-light: 0 12px 24px var(--shadow-color-lg-light), 0 6px 12px var(--shadow-color-md-light); --shadow-xs-dark: 0 1px 2px var(--shadow-color-dark); --shadow-sm-dark: 0 2px 4px var(--shadow-color-dark), 0 1px 2px var(--shadow-color-dark); --shadow-md-dark: 0 4px 8px var(--shadow-color-md-dark), 0 2px 4px var(--shadow-color-dark); --shadow-lg-dark: 0 8px 16px var(--shadow-color-lg-dark), 0 4px 8px var(--shadow-color-md-dark); --shadow-xl-dark: 0 12px 24px var(--shadow-color-lg-dark), 0 6px 12px var(--shadow-color-md-dark); --transition: 0.25s ease-out; --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-7: 1.75rem; --space-8: 2rem; --space-9: 2.5rem; --space-10: 3rem; --space-11: 3.5rem; --space-12: 4rem; --font-size-xs: 0.75rem; --font-size-sm: 0.875rem; --font-size-base: 1rem; --font-size-md: 1.125rem; --font-size-lg: 1.25rem; --font-size-xl: 1.5rem; --font-size-xxl: 1.875rem; --font-size-display: clamp(2.25rem, 6vw, 3.5rem);
-        }
-        [data-theme="light"] { --clr-primary-current: var(--clr-primary-light); --clr-primary-hover-current: var(--clr-primary-hover-light); --clr-primary-focus-ring-current: var(--clr-primary-focus-ring-light); --clr-bg-current: var(--clr-bg-light); --clr-surface-current: var(--clr-surface-light); --clr-sidebar-bg-current: var(--clr-sidebar-bg-light); --clr-input-bg-current: var(--clr-input-bg-light); --clr-input-focus-bg-current: var(--clr-input-focus-bg-light); --clr-text-current: var(--clr-text-light); --clr-text-muted-current: var(--clr-text-muted-light); --clr-border-current: var(--clr-border-light); --clr-input-border-current: var(--clr-input-border-light); --clr-input-focus-border-current: var(--clr-input-focus-border-light); --clr-success-current: var(--clr-success-light); --clr-warning-current: var(--clr-warning-light); --shadow-xs-current: var(--shadow-xs-light); --shadow-sm-current: var(--shadow-sm-light); --shadow-md-current: var(--shadow-md-light); --shadow-lg-current: var(--shadow-lg-light); --shadow-xl-current: var(--shadow-xl-light); --note-bg-current: color-mix(in srgb, var(--clr-primary-light) 5%, transparent); --note-border-current: color-mix(in srgb, var(--clr-primary-light) 20%, transparent); }
-        [data-theme="dark"] { --clr-primary-current: var(--clr-primary-dark); --clr-primary-hover-current: var(--clr-primary-hover-dark); --clr-primary-focus-ring-current: var(--clr-primary-focus-ring-dark); --clr-bg-current: var(--clr-bg-dark); --clr-surface-current: var(--clr-surface-dark); --clr-sidebar-bg-current: var(--clr-sidebar-bg-dark); --clr-input-bg-current: var(--clr-input-bg-dark); --clr-input-focus-bg-current: var(--clr-input-focus-bg-dark); --clr-text-current: var(--clr-text-dark); --clr-text-muted-current: var(--clr-text-muted-dark); --clr-border-current: var(--clr-border-dark); --clr-input-border-current: var(--clr-input-border-dark); --clr-input-focus-border-current: var(--clr-input-focus-border-dark); --clr-success-current: var(--clr-success-dark); --clr-warning-current: var(--clr-warning-dark); --shadow-xs-current: var(--shadow-xs-dark); --shadow-sm-current: var(--shadow-sm-dark); --shadow-md-current: var(--shadow-md-dark); --shadow-lg-current: var(--shadow-lg-dark); --shadow-xl-current: var(--shadow-xl-dark); --note-bg-current: color-mix(in srgb, var(--clr-primary-dark) 15%, #00000080); --note-border-current: color-mix(in srgb, var(--clr-primary-dark) 30%, transparent); }
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; } html { scroll-behavior: smooth; font-size: 100%; -webkit-tap-highlight-color: transparent; } body { font-family: var(--font-primary); background: var(--clr-bg-current); color: var(--clr-text-current); min-height: 100vh; display: flex; flex-direction: column; transition: background var(--transition), color var(--transition); line-height: 1.7; font-size: var(--font-size-base); overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; } img, svg { max-width: 100%; height: auto; display: block; vertical-align: middle; } svg { width: 1.1em; height: 1.1em; fill: currentColor; display: inline-block; vertical-align: -0.15em; margin-inline-end: 0.4em; } button { background: none; border: none; padding: 0; font: inherit; color: inherit; cursor: pointer; } .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } } @keyframes slideInUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } } @keyframes valueUpdate { 0% { transform: scale(1); color: var(--clr-text-current); } 40% { transform: scale(1.15); color: var(--clr-primary-current); } 100% { transform: scale(1); color: var(--clr-primary-current); } }
-        .page-wrapper { position: relative; width: 100%; flex-grow: 1; display: flex; flex-direction: column; animation: fadeIn 0.5s ease-out; }
-        .global-controls { position: fixed; top: var(--space-4); inset-inline-end: var(--space-4); z-index: 1000; display: flex; gap: var(--space-3); }
-        .global-controls button { padding: var(--space-2) var(--space-3); border: 1px solid var(--clr-border-current); border-radius: var(--radius-md); background: var(--clr-surface-current); color: var(--clr-text-muted-current); cursor: pointer; transition: all var(--transition); font-size: var(--font-size-sm); font-weight: 500; box-shadow: var(--shadow-sm-current); display: inline-flex; align-items: center; gap: var(--space-2); white-space: nowrap; }
-        .global-controls button:hover { border-color: var(--clr-primary-current); color: var(--clr-primary-current); background: color-mix(in srgb, var(--clr-primary-current) 10%, transparent); transform: translateY(-1px) scale(1.02); box-shadow: var(--shadow-md-current); }
-        .global-controls button svg { margin: 0; }
-        .main-container { width: 100%; max-width: 1440px; margin: var(--space-8) auto 0; padding: 0 var(--space-6); padding-top: var(--space-10); flex-grow: 1; display: flex; flex-direction: column; gap: var(--space-8); }
-        .sidebar { background: var(--clr-surface-current); padding: var(--space-7); border-radius: var(--radius-xl); box-shadow: var(--shadow-md-current); border: 1px solid var(--clr-border-current); transition: background var(--transition), border-color var(--transition), box-shadow var(--transition); animation: slideInUp 0.5s ease-out backwards; position: relative; display: flex; flex-direction: column; }
-        .sidebar-logo-container { display: flex; justify-content: center; align-items: center; width: 80%; max-width: 280px; margin: 0 auto var(--space-6); padding-bottom: var(--space-5); border-bottom: 1px solid var(--clr-border-current); }
-        #storeLogo { height: clamp(120px, 28vw, 200px); width: auto; object-fit: contain; border-radius: var(--radius-md); transition: transform var(--transition), box-shadow var(--transition); }
-        #storeLogo:hover { transform: scale(1.03); box-shadow: var(--shadow-lg-current); }
-        .controls { display: flex; align-items: center; justify-content: center; gap: var(--space-4); margin-top: var(--space-2); margin-bottom: var(--space-7); padding-bottom: var(--space-5); border-bottom: 1px dashed var(--clr-border-current); }
-        .controls button { padding: var(--space-2) var(--space-3); border: 1px solid var(--clr-border-current); border-radius: var(--radius-md); background: var(--clr-surface-current); color: var(--clr-text-muted-current); cursor: pointer; transition: all var(--transition); font-size: var(--font-size-sm); font-weight: 500; box-shadow: var(--shadow-xs-current); display: inline-flex; align-items: center; gap: var(--space-2); white-space: nowrap; }
-        .controls button:hover { border-color: var(--clr-primary-current); color: var(--clr-primary-current); background: color-mix(in srgb, var(--clr-primary-current) 10%, transparent); transform: translateY(-1px) scale(1.02); box-shadow: var(--shadow-md-current); }
-        .controls button svg { margin: 0; }
-        .sidebar-content-wrapper { display: flex; flex-direction: column; gap: var(--space-5); margin-bottom: var(--space-6); margin-top: 0; }
-        .sidebar-title { font-size: var(--font-size-xl); font-weight: 700; color: var(--clr-primary-current); text-align: center; margin: 0; }
-        .input-wrapper { width: 100%; max-width: 420px; text-align: center; margin: 0 auto; }
-        .input-wrapper label { font-size: var(--font-size-base); font-weight: 500; color: var(--clr-text-muted-current); margin-bottom: var(--space-3); display: block; transition: color var(--transition); }
-        .input-wrapper input:focus + label { color: var(--clr-primary-current); }
-        .input-wrapper input { width: 100%; padding: var(--space-4); font-size: var(--font-size-lg); font-weight: 700; border: 1px solid var(--clr-input-border-current); border-radius: var(--radius-md); text-align: center; background-color: var(--clr-input-bg-current); color: var(--clr-text-current); transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition); box-shadow: var(--shadow-sm-current); }
-        .input-wrapper input::placeholder { color: var(--clr-text-muted-current); opacity: 0.6; }
-        .input-wrapper input:focus { border-color: var(--clr-input-focus-border-current); outline: none; box-shadow: 0 0 0 4px var(--clr-primary-focus-ring-current), var(--shadow-md-current); background-color: var(--clr-input-focus-bg-current); }
-        .note { border: 1px solid var(--note-border-current); background: var(--note-bg-current); border-inline-start: 4px solid var(--clr-primary-current); color: var(--clr-text-muted-current); padding: var(--space-4); border-radius: var(--radius-md); margin-top: var(--space-7); font-size: var(--font-size-sm); line-height: 1.7; box-shadow: none; transition: background var(--transition), border-color var(--transition), color var(--transition); }
+        /* ==========================================================================
+           1. CSS Variables & Theme Definitions (Stable - Unchanged)
+           ========================================================================== */
+        :root { /* ... Variables Unchanged ... */ --font-primary: 'Tajawal', sans-serif; --clr-primary-hue: 210; --clr-primary-saturation: 75%; --clr-primary-lightness-light: 55%; --clr-primary-lightness-dark: 45%; --clr-primary-light: hsl(var(--clr-primary-hue), var(--clr-primary-saturation), var(--clr-primary-lightness-light)); --clr-primary-dark: hsl(var(--clr-primary-hue), var(--clr-primary-saturation), var(--clr-primary-lightness-dark)); --clr-primary-hover-light: hsl(var(--clr-primary-hue), var(--clr-primary-saturation), 50%); --clr-primary-hover-dark: hsl(var(--clr-primary-hue), var(--clr-primary-saturation), 40%); --clr-primary-focus-ring-light: hsla(var(--clr-primary-hue), var(--clr-primary-saturation), 50%, 0.35); --clr-primary-focus-ring-dark: hsla(var(--clr-primary-hue), var(--clr-primary-saturation), 60%, 0.4); --clr-gray-50: #f9fafb; --clr-gray-100: #f3f4f6; --clr-gray-200: #e5e7eb; --clr-gray-300: #d1d5db; --clr-gray-400: #9ca3af; --clr-gray-500: #6b7280; --clr-gray-600: #4b5563; --clr-gray-700: #374151; --clr-gray-800: #1f2937; --clr-gray-900: #111827; --clr-gray-950: #0c101b; --clr-warm-white: hsl(36, 30%, 98%); --clr-soft-beige: hsl(36, 25%, 95%); --clr-warm-border: hsl(36, 20%, 88%); --clr-success: #10b981; --clr-warning: #ef4444; --clr-success-dark: #34d399; --clr-warning-dark: #f87171; --clr-white: #ffffff; --clr-black: #000000; --font-size-xs: 0.75rem; --font-size-sm: 0.875rem; --font-size-base: 1rem; --font-size-md: 1.125rem; --font-size-lg: 1.25rem; --font-size-xl: 1.5rem; --font-size-xxl: 1.75rem; --line-height-base: 1.6; --line-height-tight: 1.3; --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-7: 1.75rem; --space-8: 2rem; --space-9: 2.5rem; --space-10: 3rem; --space-11: 3.5rem; --space-12: 4rem; --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-xl: 16px; --border-width: 1px; --focus-ring-width: 3px; --shadow-color-light: rgba(90, 70, 50, 0.07); --shadow-color-md-light: rgba(90, 70, 50, 0.09); --shadow-color-lg-light: rgba(90, 70, 50, 0.11); --shadow-color-dark: rgba(0, 0, 0, 0.16); --shadow-color-md-dark: rgba(0, 0, 0, 0.25); --shadow-color-lg-dark: rgba(0, 0, 0, 0.35); --shadow-sm-light: 0 1px 2px var(--shadow-color-light); --shadow-md-light: 0 3px 5px var(--shadow-color-md-light), 0 1px 2px var(--shadow-color-light); --shadow-lg-light: 0 6px 10px var(--shadow-color-lg-light), 0 2px 4px var(--shadow-color-md-light); --shadow-sm-dark: 0 1px 2px var(--shadow-color-dark); --shadow-md-dark: 0 3px 5px var(--shadow-color-md-dark), 0 1px 2px var(--shadow-color-dark); --shadow-lg-dark: 0 6px 10px var(--shadow-color-lg-dark), 0 2px 4px var(--shadow-color-md-dark); --transition-duration: 0.25s; --transition-timing: cubic-bezier(0.4, 0, 0.2, 1); --transition-base: var(--transition-duration) var(--transition-timing); --card-padding-mobile: var(--space-5); --card-padding-tablet: var(--space-6); --card-padding-desktop: var(--space-9); --details-animation-duration: 0.3s; --details-stagger-delay: 0.05s; --value-update-flash-duration: 0.5s; --value-container-width-desktop: 220px; }
+        [data-theme="light"] { /* Theme variables */ --clr-primary-current: var(--clr-primary-light); --clr-primary-hover-current: var(--clr-primary-hover-light); --clr-primary-focus-ring-current: var(--clr-primary-focus-ring-light); --clr-bg-current: var(--clr-soft-beige); --clr-surface-current: var(--clr-warm-white); --clr-input-bg-current: var(--clr-warm-white); --clr-text-current: var(--clr-gray-900); --clr-text-muted-current: var(--clr-gray-600); --clr-border-current: var(--clr-warm-border); --clr-input-border-current: var(--clr-gray-300); --clr-input-focus-border-current: var(--clr-primary-light); --clr-success-current: var(--clr-success); --clr-warning-current: var(--clr-warning); --shadow-sm-current: var(--shadow-sm-light); --shadow-md-current: var(--shadow-md-light); --shadow-lg-current: var(--shadow-lg-light); --note-bg-current: color-mix(in srgb, var(--clr-primary-light) 5%, transparent); --note-border-current: color-mix(in srgb, var(--clr-primary-light) 20%, transparent); --viz-bar-profit-bg: hsl(var(--clr-primary-hue), 60%, 88%); --viz-bar-fee-bg: hsl(var(--clr-primary-hue), 20%, 92%); --details-bg: hsl(var(--clr-primary-hue), 20%, 96%); --separator-color: hsla(var(--clr-primary-hue), 15%, 50%, 0.2); --control-border-current: var(--clr-gray-300); --sidebar-desktop-bg: var(--clr-surface-current); --input-wrapper-bg: var(--clr-input-bg-current); --input-wrapper-border: var(--clr-input-border-current); --input-wrapper-focus-border: var(--clr-input-focus-border-current); --input-wrapper-focus-shadow: var(--clr-primary-focus-ring-light); --value-update-flash-bg: hsla(var(--clr-primary-hue), 80%, 80%, 0.4); --toggle-details-text-color: var(--clr-primary-current); --toggle-details-hover-bg: color-mix(in srgb, var(--clr-primary-light) 10%, transparent); --clear-btn-color: var(--clr-gray-600); --clear-btn-border-color: var(--clr-gray-300); --clear-btn-disabled-color: var(--clr-gray-400); }
+        [data-theme="dark"] { /* Theme variables */ --clr-primary-current: var(--clr-primary-dark); --clr-primary-hover-current: var(--clr-primary-hover-dark); --clr-primary-focus-ring-current: var(--clr-primary-focus-ring-dark); --clr-bg-current: var(--clr-gray-950); --clr-surface-current: var(--clr-gray-900); --clr-input-bg-current: var(--clr-gray-800); --clr-text-current: var(--clr-gray-100); --clr-text-muted-current: var(--clr-gray-400); --clr-border-current: var(--clr-gray-700); --clr-input-border-current: var(--clr-gray-700); --clr-input-focus-border-current: var(--clr-primary-dark); --clr-success-current: var(--clr-success-dark); --clr-warning-current: var(--clr-warning-dark); --shadow-sm-current: var(--shadow-sm-dark); --shadow-md-current: var(--shadow-md-dark); --shadow-lg-current: var(--shadow-lg-dark); --note-bg-current: color-mix(in srgb, var(--clr-primary-dark) 15%, #00000080); --note-border-current: color-mix(in srgb, var(--clr-primary-dark) 30%, transparent); --viz-bar-profit-bg: hsl(var(--clr-primary-hue), 30%, 35%); --viz-bar-fee-bg: hsl(var(--clr-primary-hue), 20%, 25%); --details-bg: hsl(var(--clr-primary-hue), 20%, 18%); --separator-color: hsla(var(--clr-primary-hue), 10%, 80%, 0.15); --control-border-current: var(--clr-gray-600); --sidebar-desktop-bg: color-mix(in srgb, var(--clr-surface-current) 95%, black 5%); --input-wrapper-bg: var(--clr-input-bg-current); --input-wrapper-border: var(--clr-input-border-current); --input-wrapper-focus-border: var(--clr-input-focus-border-current); --input-wrapper-focus-shadow: var(--clr-primary-focus-ring-dark); --value-update-flash-bg: hsla(var(--clr-primary-hue), 60%, 30%, 0.5); --toggle-details-text-color: var(--clr-primary-current); --toggle-details-hover-bg: color-mix(in srgb, var(--clr-primary-dark) 15%, transparent); --clear-btn-color: var(--clr-gray-400); --clear-btn-border-color: var(--clr-gray-700); --clear-btn-disabled-color: var(--clr-gray-600); }
+
+        /* ==========================================================================
+           2. Base & Reset Styles (Unchanged)
+           ========================================================================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 100%; -webkit-tap-highlight-color: transparent; height: 100%; }
+        body { font-family: var(--font-primary); background: var(--clr-bg-current); color: var(--clr-text-current); min-height: 100%; display: flex; flex-direction: column; transition: background var(--transition-base), color var(--transition-base); line-height: var(--line-height-base); font-size: var(--font-size-base); overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        img { max-width: 100%; height: auto; display: block; vertical-align: middle; }
+        svg { width: 1em; height: 1em; display: block; }
+        button { background: none; border: none; padding: 0; margin: 0; font: inherit; color: inherit; cursor: pointer; text-align: inherit; -webkit-appearance: none; appearance: none;}
+        input[type="text"] { font-family: inherit; font-size: inherit; line-height: inherit; color: inherit; border: none; background-color: transparent; padding: 0; border-radius: 0; -webkit-appearance: none; appearance: none; outline: none; }
+
+        /* ==========================================================================
+           3. Utility Classes (Unchanged)
+           ========================================================================== */
+        .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+
+        /* ==========================================================================
+           4. Animations (Unchanged)
+           ========================================================================== */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideInUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes valueFlash { 0%, 100% { background-color: transparent; } 30% { background-color: var(--value-update-flash-bg); } }
+        .value.is-updating { animation: valueFlash var(--value-update-flash-duration) var(--transition-timing); }
+        *:focus-visible { transition: box-shadow 0.15s ease-out; }
+        @keyframes detailRowSlideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ==========================================================================
+           5. Layout Structure (Unchanged)
+           ========================================================================== */
+        .page-wrapper { position: relative; width: 100%; flex-grow: 1; display: flex; flex-direction: column; animation: fadeIn 0.5s var(--transition-timing); }
+        .main-container { width: 100%; max-width: 1440px; margin: var(--space-6) auto; padding: 0 var(--space-4); flex-grow: 1; display: flex; flex-direction: column; gap: var(--space-6); margin-bottom: var(--space-8); }
+        .sidebar { flex-shrink: 0; animation: slideInUp 0.5s var(--transition-timing) 0.1s backwards; }
+        .main-content-area { flex-grow: 1; min-width: 0; animation: slideInUp 0.5s var(--transition-timing) 0.2s backwards; display: flex; flex-direction: column; }
+        .page-footer { text-align: center; padding: var(--space-6) var(--space-4); margin-top: 0; font-size: var(--font-size-sm); color: var(--clr-text-muted-current); border-top: var(--border-width) solid var(--clr-border-current); background: var(--clr-surface-current); transition: background var(--transition-base), border-color var(--transition-base), color var(--transition-base); flex-shrink: 0; }
+
+        /* ==========================================================================
+           6. Sidebar Components (Unchanged)
+           ========================================================================== */
+        .sidebar { background: var(--clr-surface-current); padding: var(--card-padding-mobile); border-radius: var(--radius-lg); box-shadow: var(--shadow-md-current); border: var(--border-width) solid var(--clr-border-current); transition: background var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base); position: relative; display: flex; flex-direction: column; }
+        .sidebar-header { padding-bottom: var(--space-4); margin-bottom: var(--space-4); border-bottom: var(--border-width) solid var(--clr-border-current); }
+        .sidebar-logo-container { display: flex; justify-content: center; align-items: center; width: 65%; max-width: 200px; margin: 0 auto var(--space-4); padding: 0; border: none; }
+        #storeLogo { height: auto; width: 100%; object-fit: contain; border-radius: var(--radius-sm); transition: transform var(--transition-base), filter var(--transition-base); }
+        #storeLogo:hover { transform: scale(1.05); filter: brightness(1.1) drop-shadow(0 2px 3px rgba(0,0,0,0.1)); }
+        .controls { display: flex; align-items: center; justify-content: center; gap: var(--space-2); flex-wrap: wrap; margin: 0; }
+        [dir="rtl"] .controls { flex-direction: row-reverse; }
+        .control-btn { padding: var(--space-2); border: var(--border-width) solid var(--control-border-current); border-radius: var(--radius-md); background: transparent; color: var(--clr-text-muted-current); cursor: pointer; transition: transform var(--transition-base), box-shadow var(--transition-base), background-color var(--transition-base), border-color var(--transition-base), color var(--transition-base); font-size: var(--font-size-sm); font-weight: 500; display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); white-space: nowrap; min-width: 2.5rem; height: 2.5rem; position: relative; }
+        .control-btn .btn-icon-wrapper { display: inline-flex; align-items: center; justify-content: center; width: 1.4em; height: 1.4em; }
+        .control-btn .btn-icon-wrapper > svg { width: 100%; height: 100%; object-fit: contain; fill: none; stroke: currentColor; }
+        .control-btn .btn-text { display: inline; font-weight: 500; }
+        .control-btn:hover { border-color: var(--clr-primary-current); color: var(--clr-primary-current); background: color-mix(in srgb, var(--clr-primary-current) 8%, transparent); transform: translateY(-2px) scale(1.03); box-shadow: var(--shadow-sm-current); }
+        .control-btn:active { transform: translateY(0px) scale(0.97); background: color-mix(in srgb, var(--clr-primary-current) 12%, transparent); }
+        .control-btn:focus-visible { outline: none; border-color: var(--clr-primary-current); box-shadow: 0 0 0 var(--focus-ring-width) var(--clr-primary-focus-ring-current); }
+        #btnShareWhatsapp .btn-icon-wrapper img { border-radius: 4px; }
+        #btn-lang .btn-icon-wrapper { width: 1.2em; height: 1.2em; }
+        #btn-lang .lang-text { font-weight: 500; }
+
+        .sidebar-content-wrapper { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); margin: 0; padding: 0; border: none; }
+        .sidebar-title { font-size: var(--font-size-lg); font-weight: 700; color: var(--clr-primary-current); text-align: center; margin: 0 0 var(--space-1) 0; line-height: var(--line-height-tight); width: 100%; }
+        label[for="price"] { display: block; text-align: center; font-size: var(--font-size-sm); font-weight: 500; color: var(--clr-text-muted-current); margin-bottom: var(--space-2); transition: color var(--transition-base); pointer-events: none; width: 100%; }
+        .input-wrapper { position: relative; width: 100%; max-width: 420px; margin-inline: auto; display: grid; grid-template-columns: 1fr auto; gap: 0; align-items: stretch; background-color: var(--input-wrapper-bg); border: var(--border-width) solid var(--input-wrapper-border); border-radius: var(--radius-lg); transition: border-color var(--transition-base), box-shadow var(--transition-base); box-shadow: var(--shadow-sm-current) inset; overflow: hidden; }
+        .input-wrapper:focus-within { border-color: var(--input-wrapper-focus-border); box-shadow: 0 0 0 var(--focus-ring-width) var(--input-wrapper-focus-shadow); }
+        .input-wrapper input#price { grid-column: 1 / 2; width: 100%; padding-block: var(--space-3); padding-inline: var(--space-4); font-size: var(--font-size-lg); font-weight: 700; line-height: var(--line-height-base); border: none; background: transparent; outline: none; text-align: center; color: var(--clr-text-current); border-radius: var(--radius-lg) 0 0 var(--radius-lg); [dir="rtl"] & { border-radius: 0 var(--radius-lg) var(--radius-lg) 0; } }
+        .input-wrapper input#price::placeholder { color: var(--clr-text-muted-current); opacity: 0.6; font-weight: 400; }
+        #btnClear { grid-column: 2 / 3; position: relative; inset: auto; flex-shrink: 0; width: 3.2rem; height: auto; padding: 0 var(--space-2); font-size: 1rem; background: transparent; border: none; border-radius: 0; color: var(--clear-btn-color); cursor: pointer; line-height: 0; display: flex; align-items: center; justify-content: center; border-inline-start: var(--border-width) solid var(--input-wrapper-border); opacity: 1; visibility: visible; transform: scale(1); transition: color var(--transition-base), background-color var(--transition-base), transform var(--transition-base), opacity var(--transition-base), border-color var(--transition-base); user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; }
+        #btnClear svg { width: 1.15em; height: 1.15em; margin: 0; pointer-events: none; fill: none; stroke: currentColor; stroke-width: 1.5; }
+        #btnClear:disabled { opacity: 0.4; cursor: not-allowed; background-color: transparent !important; color: var(--clear-btn-disabled-color); transform: scale(1); border-inline-start-color: var(--input-wrapper-border); }
+        #btnClear:not(:disabled):hover { color: var(--clr-primary-current); background-color: color-mix(in srgb, var(--clr-primary-current) 10%, transparent); }
+        #btnClear:not(:disabled):active { background-color: color-mix(in srgb, var(--clr-primary-current) 18%, transparent); transform: scale(0.95); }
+        #btnClear:not(:disabled):focus-visible { color: var(--clr-primary-current); outline: none; box-shadow: inset 0 0 0 2px var(--clr-primary-focus-ring-current); background-color: color-mix(in srgb, var(--clr-primary-current) 5%, transparent); }
+        [data-theme="dark"] #btnClear { border-inline-start-color: var(--clr-gray-700); }
+        [data-theme="dark"] #btnClear:disabled { color: var(--clr-gray-600); border-inline-start-color: var(--clr-gray-700); }
+        [data-theme="dark"] #btnClear:not(:disabled):hover { background-color: color-mix(in srgb, var(--clr-primary-current) 15%, var(--input-wrapper-bg)); }
+        [data-theme="dark"] #btnClear:not(:disabled):active { background-color: color-mix(in srgb, var(--clr-primary-current) 25%, var(--input-wrapper-bg)); }
+        [data-theme="dark"] #btnClear:not(:disabled):focus-visible { background-color: color-mix(in srgb, var(--clr-primary-current) 10%, var(--input-wrapper-bg)); }
+
+        .note { width: 100%; max-width: 420px; margin-inline: auto; border: var(--border-width) solid var(--note-border-current); background: var(--note-bg-current); border-inline-start: 4px solid var(--clr-primary-current); color: var(--clr-text-muted-current); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); margin-top: var(--space-6); font-size: var(--font-size-sm); line-height: var(--line-height-base); transition: background var(--transition-base), border-color var(--transition-base), color var(--transition-base); }
         .note strong { color: var(--clr-text-current); font-weight: 700; }
-        .main-content-area { animation: slideInUp 0.6s ease-out backwards; animation-delay: 0.1s; }
-        .cards { display: grid; gap: var(--space-7); grid-template-columns: 1fr; }
-        .card { background: var(--clr-surface-current); border: 1px solid var(--clr-border-current); border-radius: var(--radius-xl); padding: var(--space-7); transition: all var(--transition); box-shadow: var(--shadow-md-current); display: flex; flex-direction: column; }
-        .card:hover { box-shadow: var(--shadow-xl-current); border-color: var(--clr-border-current); transform: translateY(-4px); }
-        .card-header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-6); padding-bottom: var(--space-5); border-bottom: 1px solid var(--clr-border-current); }
-        .card-header h2 { font-size: var(--font-size-lg); font-weight: 700; color: var(--clr-text-current); order: 1; flex-grow: 1; }
-        .card-header img { height: 40px; width: auto; object-fit: contain; order: 2; border-radius: var(--radius-sm); background: var(--clr-white); padding: var(--space-1); box-shadow: var(--shadow-xs-current); transition: transform var(--transition), box-shadow var(--transition); }
-        .card-header img:hover { transform: scale(1.1); box-shadow: var(--shadow-md-current); }
-        .result { list-style: none; padding: 0; flex-grow: 1; display: flex; flex-direction: column;}
-        .result li { display: flex; justify-content: space-between; align-items: center; gap: var(--space-5); margin-bottom: var(--space-4); padding-bottom: var(--space-3); border-bottom: 1px dashed var(--clr-border-current); transition: border-color var(--transition); }
-        .result li:last-of-type { margin-bottom: 0; border-bottom: none; }
-        .label { font-weight: 500; color: var(--clr-text-muted-current); font-size: var(--font-size-base); white-space: normal; text-align: start; flex-shrink: 1; }
-        .value { font-weight: 700; text-align: end; font-size: var(--font-size-xl); font-feature-settings: "tnum"; letter-spacing: 0.5px; transition: color var(--transition), transform var(--transition); display: inline-block; white-space: nowrap; flex-shrink: 0; }
-        .value.updated { animation: valueUpdate 0.5s ease-out; }
-        /* --- تطبيق الألوان للقيم --- */
+
+        /* ==========================================================================
+           7. Main Content Area Components (Unchanged)
+           ========================================================================== */
+        .card { background: var(--clr-surface-current); border: var(--border-width) solid var(--clr-border-current); border-radius: var(--radius-lg); padding: var(--card-padding-mobile); transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base); box-shadow: var(--shadow-md-current); display: flex; flex-direction: column; position: relative; overflow: hidden; flex-grow: 1; }
+        .card:hover { box-shadow: var(--shadow-lg-current); transform: translateY(-4px); }
+        .card-header { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); margin-bottom: var(--space-5); padding-bottom: var(--space-4); border-bottom: var(--border-width) solid var(--clr-border-current); }
+        .card-header h2 { font-size: var(--font-size-lg); font-weight: 700; color: var(--clr-text-current); line-height: var(--line-height-tight); margin: 0; text-align: center; order: 1; }
+        .logos-container { display: flex; align-items: center; gap: var(--space-3); flex-shrink: 0; margin-inline-start: 0; order: 2; }
+        .logos-container img { height: 32px; width: auto; object-fit: contain; border-radius: var(--radius-sm); background: var(--clr-white); padding: var(--space-1); box-shadow: var(--shadow-sm-current); transition: transform var(--transition-base), box-shadow var(--transition-base); }
+        .logos-container img:hover { transform: scale(1.08); box-shadow: var(--shadow-md-current); }
+
+        /* Results List (Unchanged) */
+        .result { list-style: none; padding: 0; flex-grow: 1; display: flex; flex-direction: column; margin-bottom: var(--space-5); }
+        .result li { position: relative; border-radius: var(--radius-md); overflow: hidden; /* Stagger Animation */ animation: detailRowSlideIn 0.4s var(--transition-timing) backwards; opacity: 0; }
+        .result > li:nth-child(1) { animation-delay: 0.1s; opacity: 1;} .result > li:nth-child(2) { animation-delay: 0.15s; } .result > li:nth-child(3) { animation-delay: 0.2s; } .result > li:nth-child(4) { animation-delay: 0.25s; } .result > li:nth-child(5) { animation-delay: 0.3s; } .result > li:nth-child(6) { animation-delay: 0.35s; }
+        .result > li:not(.detail-row):not(:last-of-type)::after { content: ''; position: absolute; bottom: 0px; left: var(--space-4); width: calc(100% - var(--space-4) * 2); height: 1px; background: linear-gradient(to right, transparent 0%, var(--separator-color) 20%, var(--separator-color) 80%, transparent 100%); opacity: 0.6; transition: opacity var(--transition-base); pointer-events: none; }
+        .result > li:not(.detail-row):hover { background-color: color-mix(in srgb, var(--clr-primary-current) 3%, transparent); }
+        .result > li:not(.detail-row):hover::after { opacity: 0.8; }
+        .result-row { display: flex; justify-content: space-between; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-2); min-height: 3.5em; position: relative; z-index: 1; transition: background-color var(--transition-base); }
+        .label { font-weight: 500; color: var(--clr-text-muted-current); font-size: var(--font-size-sm); line-height: var(--line-height-tight); padding-inline-end: var(--space-2); flex-grow: 1; display: flex; align-items: center; gap: var(--space-2); text-align: start; }
+        .value-container { display: flex; align-items: center; justify-content: flex-end; gap: var(--space-1); text-align: end; flex-shrink: 0; min-width: var(--value-container-min-width-base); }
+        .value { flex-grow: 1; font-weight: 700; font-size: var(--font-size-lg); font-feature-settings: "tnum"; letter-spacing: 0.5px; transition: color var(--transition-base), background-color calc(var(--value-update-flash-duration) * 0.6) ease-out; line-height: var(--line-height-tight); text-align: end; white-space: nowrap; }
         .value.info { color: var(--clr-text-current); font-weight: 500; }
         .value.warning { color: var(--clr-warning-current); }
         .value.primary { color: var(--clr-primary-current); }
         .value.success { color: var(--clr-success-current); }
-        .page-footer { text-align: center; padding: var(--space-8) var(--space-6); margin-top: auto; font-size: var(--font-size-sm); color: var(--clr-text-muted-current); border-top: 1px solid var(--clr-border-current); background: var(--clr-surface-current); transition: background var(--transition), border-color var(--transition), color var(--transition); }
-        @media (min-width: 992px) { .main-container { flex-direction: row; gap: var(--space-9); align-items: flex-start; margin-top: var(--space-8); padding-top: 0;} .sidebar { display: flex; flex-direction: column; flex: 1; max-width: 450px; padding: var(--space-8); position: sticky; top: var(--space-8); align-self: flex-start; max-height: calc(100vh - var(--space-8) * 2); overflow-y: auto; } .sidebar::-webkit-scrollbar { width: 6px; } .sidebar::-webkit-scrollbar-thumb { background-color: var(--clr-border-current); border-radius: 3px;} .sidebar-logo-container { width: 80%; max-width: 320px; margin: 0 auto var(--space-7); padding-bottom: var(--space-6); } #storeLogo { height: clamp(120px, 28vw, 200px); } .controls { margin-bottom: var(--space-7); } .sidebar-content-wrapper { gap: var(--space-7); margin-bottom: var(--space-8); margin-top: 0; } .sidebar-title { text-align: center; font-size: var(--font-size-xl); margin-bottom: 0; } .input-wrapper { max-width: none; text-align: start; margin: 0 auto; } .input-wrapper label { text-align: center; } .note { margin-top: auto; padding: var(--space-5); } .main-content-area { flex: 1.5; min-width: 0; } .results-section .cards { grid-template-columns: 1fr 1fr; gap: var(--space-8); } .card { padding: var(--space-8); } .result li { font-size: var(--font-size-base); margin-bottom: var(--space-4); padding-bottom: var(--space-3); } .value { font-size: var(--font-size-xl); } .page-footer { padding: var(--space-9) var(--space-8); } }
-        @media (min-width: 601px) and (max-width: 991px) { .main-container { padding: var(--space-8) var(--space-6); padding-top: 0; gap: var(--space-8); margin-top: var(--space-8);} .sidebar { padding: var(--space-7); } .sidebar-logo-container { width: 70%; margin-bottom: var(--space-6); padding-bottom: var(--space-5); } .controls { margin-bottom: var(--space-6); } .sidebar-content-wrapper { margin-bottom: var(--space-7); gap: var(--space-6); margin-top: 0;} .sidebar-title { margin-bottom: 0; } .note { margin-top: var(--space-8); } .results-section .cards { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-7); } .card { padding: var(--space-7); } }
-        @media (max-width: 600px) { .global-controls { display: none; } body { font-size: 0.95rem; } .main-container { padding: var(--space-4); gap: var(--space-5); margin-top: var(--space-6); } .sidebar { padding: var(--space-4); border-radius: var(--radius-lg); } .sidebar-logo-container { width: 80%; margin-bottom: var(--space-4); padding-bottom: var(--space-4); } .controls { margin-bottom: var(--space-5); gap: var(--space-3); padding-bottom: var(--space-3);} .controls button { padding: var(--space-2); font-size: var(--font-size-xs); } .sidebar-content-wrapper { margin-bottom: var(--space-4); gap: var(--space-3); margin-top: 0; } .sidebar-title { font-size: var(--font-size-lg); margin-bottom: 0; } .input-wrapper label { margin-bottom: var(--space-2); font-size: var(--font-size-sm); } .input-wrapper input { font-size: var(--font-size-md); padding: var(--space-3); } .note { margin-top: var(--space-6); padding: var(--space-3); font-size: 0.8rem; } .cards { gap: var(--space-5); } .card { padding: var(--space-5); border-radius: var(--radius-lg); } .card-header { margin-bottom: var(--space-4); padding-bottom: var(--space-3); gap: var(--space-3); } .card-header h2 { font-size: var(--font-size-md); } .card-header img { height: 30px; } .result li { gap: var(--space-3); margin-bottom: var(--space-2); padding-bottom: var(--space-2); } .label { font-size: var(--font-size-base); } .value { font-size: var(--font-size-xl); } .page-footer { padding: var(--space-5) var(--space-4); font-size: var(--font-size-xs); } }
+
+        /* Main Result Toggle Button (Unchanged) */
+        .main-result-toggle > .result-row { cursor: pointer; }
+        .toggle-details-button { font-size: var(--font-size-xs); font-weight: 500; color: var(--toggle-details-text-color); padding: var(--space-1) var(--space-2); margin-inline-start: var(--space-2); border-radius: var(--radius-sm); background-color: transparent; transition: background-color var(--transition-base), color var(--transition-base); border: 1px solid transparent; white-space: nowrap; flex-shrink: 0; }
+        .toggle-details-button:hover { background-color: var(--toggle-details-hover-bg); }
+        .toggle-details-button:focus-visible { outline: none; border-color: var(--clr-primary-current); box-shadow: 0 0 0 var(--focus-ring-width) var(--clr-primary-focus-ring-current); }
+
+        /* Details Icon (+/- for nested) (Unchanged) */
+        .details-icon { display: inline-flex; align-items: center; justify-content: center; width: 1.75em; height: 1.75em; color: var(--clr-text-muted-current); transition: transform var(--transition-base), color var(--transition-base), background-color var(--transition-base); flex-shrink: 0; margin-inline-start: var(--space-1); border-radius: 50%; position: relative; }
+        .details-icon svg { width: 0.8em; height: 0.8em; stroke-width: 2.5; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); transition: opacity 0.2s ease-in-out; }
+        .details-icon .icon-plus { opacity: 1; }
+        .details-icon .icon-minus { opacity: 0; }
+        .result li.expanded .details-icon .icon-plus { opacity: 0; }
+        .result li.expanded .details-icon .icon-minus { opacity: 1; color: var(--clr-primary-current); }
+        .result li:not(.main-result-toggle):hover .details-icon { background-color: color-mix(in srgb, var(--clr-primary-current) 8%, transparent); }
+
+        /* Styling for hidden/shown detail rows (Unchanged) */
+        .detail-row { max-height: 0; opacity: 0; overflow: hidden; transform: translateY(5px); transition: max-height var(--details-animation-duration) var(--transition-timing), opacity calc(var(--details-animation-duration) * 0.8) var(--transition-timing), transform var(--details-animation-duration) var(--transition-timing), padding-top var(--details-animation-duration) var(--transition-timing), padding-bottom var(--details-animation-duration) var(--transition-timing), border-color var(--details-animation-duration) var(--transition-timing); transition-delay: 0s, var(--details-stagger-delay), var(--details-stagger-delay), 0s, 0s, 0s; padding-top: 0; padding-bottom: 0; border-top: 1px solid transparent; background-color: color-mix(in srgb, var(--clr-surface-current) 95%, var(--clr-bg-current)); animation: none; }
+        .main-result-toggle.details-expanded ~ .detail-row { max-height: 600px; opacity: 1; padding-top: var(--space-1); padding-bottom: var(--space-1); border-top-color: var(--separator-color); transform: translateY(0); }
+         .detail-row .result-row { padding-inline-start: var(--space-5); padding-inline-end: var(--space-2); min-height: 3em; }
+         [dir="rtl"] .detail-row .result-row { padding-inline-end: var(--space-5); padding-inline-start: var(--space-2); }
+         .detail-row .label { font-size: calc(var(--font-size-sm) * 0.95); }
+         .detail-row .value { font-size: calc(var(--font-size-lg) * 0.95); }
+
+        /* Original Expandable Details (within nested rows) (Unchanged) */
+        .detail-row.expandable > .result-row { cursor: pointer; }
+        .detail-row .details-icon { margin-inline-start: auto; }
+        .detail-row.expanded .details-icon { transform: none; }
+        .calculation-details { background-color: var(--details-bg); border-radius: var(--radius-sm); padding: 0 var(--space-3); margin: 0 var(--space-5) 0; font-size: var(--font-size-xs); color: var(--clr-text-muted-current); line-height: var(--line-height-base); overflow: hidden; max-height: 0; opacity: 0; transition: max-height var(--details-animation-duration) var(--transition-timing), opacity calc(var(--details-animation-duration)*0.8) var(--transition-timing), padding var(--details-animation-duration) var(--transition-timing), margin var(--details-animation-duration) var(--transition-timing); }
+        .detail-row.expanded .calculation-details { max-height: 150px; opacity: 1; padding: var(--space-2) var(--space-3); margin: 0 var(--space-5) var(--space-2); }
+        .calculation-details code { font-family: monospace; background: color-mix(in srgb, var(--clr-border-current) 25%, transparent); padding: var(--space-1) var(--space-2); border-radius: var(--radius-sm); font-weight: 500; color: var(--clr-text-current); }
+
+        /* Fee Visualization Bar (Unchanged) */
+        .fee-visualization { margin-top: auto; padding: var(--space-5) var(--space-2) var(--space-2); border-top: var(--border-width) solid var(--clr-border-current); }
+        .viz-bar-label { font-size: var(--font-size-xs); color: var(--clr-text-muted-current); margin-bottom: var(--space-2); text-align: center; }
+        .viz-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background-color: color-mix(in srgb, var(--clr-border-current) 50%, transparent); }
+        .viz-bar-segment { height: 100%; transition: flex-basis 0.5s var(--transition-timing); }
+        .viz-bar-profit { background-color: var(--viz-bar-profit-bg); }
+        .viz-bar-fees { background-color: var(--viz-bar-fee-bg); }
+
+
+        /* ==========================================================================
+           8. Responsive Overrides (Unchanged)
+           ========================================================================== */
+        @media (min-width: 992px) { /* Desktop */
+             html { font-size: 112.5%; }
+            .main-container { flex-direction: row; gap: var(--space-12); align-items: flex-start; margin-top: var(--space-9); padding: 0 var(--space-10); margin-bottom: var(--space-10); }
+            .sidebar { flex: 0 0 480px; position: sticky; top: var(--space-8); align-self: flex-start; max-height: calc(100vh - var(--space-8) * 2); overflow-y: auto; padding: 0; background: var(--sidebar-desktop-bg); border-inline-end: var(--border-width) solid var(--clr-border-current); border-top: none; border-bottom: none; border-inline-start: none; box-shadow: var(--shadow-lg-current); display: flex; flex-direction: column; border-radius: var(--radius-xl); }
+            .sidebar::-webkit-scrollbar { width: 8px; } .sidebar::-webkit-scrollbar-track { background: transparent; } .sidebar::-webkit-scrollbar-thumb { background-color: color-mix(in srgb, var(--clr-border-current) 60%, transparent); border-radius: 4px; border: 2px solid var(--sidebar-desktop-bg); } .sidebar::-webkit-scrollbar-thumb:hover { background-color: color-mix(in srgb, var(--clr-border-current) 90%, transparent); }
+            .sidebar-header { padding: var(--space-8) var(--space-9); margin-bottom: 0; border-bottom: var(--border-width) solid var(--clr-border-current); }
+            .sidebar-logo-container { width: 60%; max-width: 220px; margin-bottom: var(--space-6); }
+            .sidebar .controls { flex-wrap: nowrap; margin: 0; justify-content: center; gap: var(--space-3); }
+            .control-btn { padding: var(--space-3) var(--space-4); min-width: auto; height: auto; font-size: var(--font-size-base); gap: var(--space-2); }
+            .control-btn .btn-icon-wrapper { width: 1.2em; height: 1.2em; margin: 0; display: inline-flex !important; }
+            .control-btn .btn-text { display: inline !important; margin-inline-start: var(--space-2); }
+            #btn-lang { gap: var(--space-2); }
+            #btn-lang .lang-text { margin-inline-start: var(--space-2); }
+            .sidebar-content-wrapper { padding: var(--space-9); border-top: none; gap: var(--space-5); flex-grow: 1; display: flex; flex-direction: column; align-items: center; }
+            .sidebar-title { font-size: var(--font-size-xl); margin-bottom: var(--space-2); width: 100%;}
+            label[for="price"] { margin-bottom: var(--space-3); font-size: var(--font-size-base); width: 100%;}
+            .input-wrapper { padding: 0 var(--space-3); border-radius: var(--radius-xl); width: 100%; max-width: none; display: grid; }
+            .input-wrapper input#price { font-size: var(--font-size-xxl); padding-inline: var(--space-5); padding-block: var(--space-4); border: none; background: transparent; box-shadow: none; }
+            #btnClear { width: 3.5rem; height: auto; }
+            #btnClear svg { width: 1.4em; height: 1.4em; }
+            .note { margin: auto auto var(--space-9); padding: var(--space-5); font-size: var(--font-size-base); width: 100%; max-width: none; }
+            .main-content-area { flex: 1 1 auto; min-width: 0; }
+            .card { padding: var(--card-padding-desktop); border-radius: var(--radius-xl); }
+            .card-header { gap: var(--space-4); }
+            .card-header h2 { font-size: var(--font-size-xxl); }
+            .result-row { display: flex; justify-content: space-between; align-items: center; gap: var(--space-6); padding: var(--space-5) var(--space-4); min-height: 4.5em; }
+            .label { flex-grow: 1; text-align: start; font-size: var(--font-size-base); }
+            .value-container { display: flex; align-items: center; justify-content: flex-end; flex-shrink: 0; width: var(--value-container-width-desktop); gap: var(--space-2); text-align: end; }
+            .value { font-size: var(--font-size-xxl); text-align: end; flex-grow: 0; white-space: nowrap; }
+            .toggle-details-button { font-size: var(--font-size-sm); flex-shrink: 0; }
+            .details-icon { width: 2em; height: 2em; flex-shrink: 0; }
+            .details-icon svg { width: 1em; height: 1em;}
+            .detail-row .result-row { padding-inline-start: var(--space-8); }
+            [dir="rtl"] .detail-row .result-row { padding-inline-end: var(--space-8); padding-inline-start: var(--space-4); }
+            .page-footer { padding: var(--space-10) var(--space-9); font-size: var(--font-size-base); }
+        }
+
+        @media (min-width: 601px) and (max-width: 991px) { /* Tablet */
+             html { font-size: 100%; }
+             .result-row { display: flex; justify-content: space-between; padding: var(--space-3) var(--space-2); min-height: 3.5em; }
+             .label { flex-grow: 1; font-size: var(--font-size-sm); }
+             .value-container { display: flex; width: auto; min-width: var(--value-container-min-width-base); flex-grow: 0; gap: var(--space-1);}
+             .value { flex-grow: 1; font-size: var(--font-size-lg); text-align: end; }
+             .toggle-details-button { display: inline-flex; font-size: var(--font-size-xs);}
+             .main-container { gap: var(--space-6); margin-top: var(--space-6); padding: 0 var(--space-6); margin-bottom: var(--space-8); }
+            .sidebar { padding: var(--card-padding-tablet); flex-basis: auto; }
+            .sidebar-header { padding-bottom: var(--space-4); margin-bottom: var(--space-5); border-bottom: var(--border-width) solid var(--clr-border-current); }
+            .sidebar-logo-container { margin-bottom: var(--space-4); }
+            .card { padding: var(--card-padding-tablet); border-radius: var(--radius-lg); }
+            .card-header { flex-direction: column; align-items: center; gap: var(--space-3); }
+            .card-header h2 { text-align: center; order: 1; font-size: var(--font-size-lg);}
+            .logos-container { margin: 0; order: 2;}
+            .controls { flex-wrap: nowrap; margin-bottom: 0; justify-content: center; gap: var(--space-2); }
+            .sidebar .controls { flex-wrap: nowrap; }
+            .control-btn { padding: var(--space-2) var(--space-3); min-width: auto; height: auto; font-size: var(--font-size-sm); gap: var(--space-2); }
+            .control-btn .btn-icon-wrapper { width: 1.1em; height: 1.1em; margin: 0; display: inline-flex !important; }
+            .control-btn .btn-text { display: inline !important; margin-inline-start: var(--space-2); }
+            #btn-lang { gap: var(--space-2); }
+            .sidebar-content-wrapper { padding: 0; border: none; gap: var(--space-3); margin-top: var(--space-5); align-items: center; }
+            .sidebar-title { font-size: var(--font-size-lg); margin-bottom: var(--space-1); }
+            label[for="price"] { margin-bottom: var(--space-2); }
+            .input-wrapper { padding: 0 var(--space-2); border: var(--border-width) solid var(--input-wrapper-border); border-radius: var(--radius-lg); background-color: var(--input-wrapper-bg); box-shadow: var(--shadow-sm-current) inset; display: grid; gap: 0; width: 100%; }
+            .input-wrapper input#price { font-size: var(--font-size-lg); padding-inline: var(--space-4); padding-block: var(--space-3); border: none; background: transparent; box-shadow: none; }
+            #btnClear { width: 2.6rem; height: auto; border-inline-start-color: var(--input-wrapper-border); }
+            .detail-row .result-row { padding-inline-start: var(--space-6); }
+            [dir="rtl"] .detail-row .result-row { padding-inline-end: var(--space-6); padding-inline-start: var(--space-2); }
+            .note { margin: var(--space-5) auto 0; padding: var(--space-3); font-size: var(--font-size-sm); width: 100%; max-width: 420px; }
+            .page-footer { padding: var(--space-7) var(--space-6); font-size: var(--font-size-sm); }
+        }
+
+        @media (max-width: 600px) { /* Mobile */
+             html { font-size: 100%; }
+             .result-row { display: flex; justify-content: space-between; flex-wrap: wrap; padding: var(--space-3) 0; min-height: unset; gap: var(--space-1); }
+             .label { flex-basis: 100%; text-align: start; flex-grow: 0;}
+             .value-container { display: flex; flex-basis: 100%; justify-content: flex-start; align-items: center; margin-top: var(--space-1); gap: var(--space-1); min-width: 0; width: auto; }
+             .value { font-size: var(--font-size-lg); text-align: start !important; white-space: normal; flex-grow: 0; }
+             .toggle-details-button { display: inline-flex; font-size: var(--font-size-xs); padding: var(--space-1) var(--space-2); margin-inline-start: auto; }
+             .main-container { gap: var(--space-5); margin-top: var(--space-4); padding: 0 var(--space-4); margin-bottom: var(--space-6); }
+            .sidebar { padding: var(--card-padding-mobile); border-radius: var(--radius-lg); }
+            .sidebar-header { padding-bottom: var(--space-4); margin-bottom: var(--space-4); }
+            .sidebar-logo-container { width: 60%; max-width: 180px; margin-bottom: var(--space-3); }
+            .controls { margin-top: 0; gap: var(--space-2); justify-content: center; flex-wrap: wrap; }
+            .control-btn { flex-shrink: 0; width: 2.8rem; height: 2.8rem; padding: 0; gap: 0; justify-content: center; align-items: center; }
+            .control-btn .btn-icon-wrapper { width: 1.5em; height: 1.5em; margin: 0; display: inline-flex !important; }
+            .control-btn .btn-text { display: none !important; }
+            #btn-lang .btn-icon-wrapper { display: none !important; }
+            #btn-lang .lang-text { display: inline !important; font-size: 1.1em; font-weight: 700; margin: 0; line-height: 1; color: var(--clr-primary-current); }
+            #btn-lang { gap: 0; }
+            .sidebar-content-wrapper { padding: 0; border: none; gap: var(--space-3); margin-top: var(--space-4); align-items: center; }
+            .sidebar-title { font-size: var(--font-size-md); margin-bottom: var(--space-1); }
+            label[for="price"] { margin-bottom: var(--space-2); }
+            .input-wrapper { padding: 0 var(--space-1); border: var(--border-width) solid var(--input-wrapper-border); border-radius: var(--radius-lg); background-color: var(--input-wrapper-bg); box-shadow: var(--shadow-sm-current) inset; display: grid; gap: 0; width: 100%; }
+            .input-wrapper input#price { font-size: var(--font-size-md); padding-block: var(--space-3); padding-inline: var(--space-3); border: none; background: transparent; box-shadow: none; }
+            #btnClear { width: 2.8rem; height: auto; border-inline-start-color: var(--input-wrapper-border); padding: 0 var(--space-1); }
+            #btnClear svg { width: 1.1em; height: 1.1em; }
+            .note { margin-top: var(--space-4); padding: var(--space-3); font-size: var(--font-size-xs); width: 100%; max-width: 420px; margin-inline: auto; }
+            .card { padding: var(--card-padding-mobile); border-radius: var(--radius-lg); }
+            .card-header { flex-direction: column; align-items: center; text-align: center; gap: var(--space-3); padding-bottom: var(--space-3); margin-bottom: var(--space-4); }
+            .card-header h2 { order: 1; font-size: var(--font-size-md); }
+            .logos-container { order: 2; justify-content: center; margin: 0;}
+            .logos-container img { height: 28px; }
+            .result { margin-bottom: var(--space-4); }
+            .result li { animation: none; opacity: 1; }
+            .result li:not(:last-of-type)::after { left: var(--space-2); width: calc(100% - var(--space-2) * 2); opacity: 0.6; }
+            .detail-row .result-row { padding-inline-start: var(--space-4); }
+            [dir="rtl"] .detail-row .result-row { padding-inline-end: var(--space-4); padding-inline-start: 0; }
+            .calculation-details { padding: 0 var(--space-3); margin: 0 var(--space-4) 0; }
+            .detail-row.expanded .calculation-details { padding: var(--space-2) var(--space-3); margin: 0 var(--space-4) var(--space-2); }
+            .fee-visualization { padding: var(--space-3) 0 var(--space-1); } .viz-bar-label { font-size: 0.65rem; } .viz-bar { height: 6px; }
+            .main-content-area { margin-bottom: var(--space-6); }
+            .page-footer { padding: var(--space-5) var(--space-4); font-size: var(--font-size-xs); }
+        }
+
+        /* ==========================================================================
+           9. Print Styles (Unchanged)
+           ========================================================================== */
+        @media print { /* (Stable print styles) */ }
 
     </style>
 </head>
 <body>
-    <div class="page-wrapper">
+     <div class="page-wrapper">
         <div class="main-container">
             <aside class="sidebar input-section">
-                <div class="sidebar-logo-container">
-                     <img src="https://www2.0zz0.com/2025/04/29/23/183916568.png" alt="شعار الشروق لمواد البناء" id="storeLogo">
-                </div>
-                 <div class="controls">
-                    <button id="btn-lang" title="تغيير اللغة">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
-                        <span class="lang-text">English</span>
-                    </button>
-                    <button id="btn-theme" title="تغيير السمة">
-                        <span class="theme-icon-wrapper"></span>
-                        <span class="theme-text">ليلي</span>
-                    </button>
-                </div>
+                  <div class="sidebar-header">
+                      <div class="sidebar-logo-container">
+                         <img src="https://www2.0zz0.com/2025/04/29/23/183916568.png" alt="شعار الشروق لمواد البناء" id="storeLogo">
+                     </div>
+                     <div class="controls">
+                          <button type="button" id="btn-lang" class="control-btn" title="..." aria-label="...">
+                              <span class="btn-icon-wrapper">
+                                  </span>
+                              <span class="btn-text lang-text">...</span>
+                          </button>
+                          <button type="button" id="btn-theme" class="control-btn" title="..." aria-label="...">
+                               <span class="btn-icon-wrapper theme-icon-wrapper"></span>
+                               <span class="btn-text theme-text">...</span>
+                           </button>
+                          <button type="button" id="btnPrint" class="control-btn" title="..." aria-label="...">
+                              <span class="btn-icon-wrapper">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                              </span>
+                              <span class="btn-text print-text">طباعة</span> </button>
+                          <button type="button" id="btnShareWhatsapp" class="control-btn" title="..." aria-label="...">
+                              <span class="btn-icon-wrapper"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp Logo" /> </span>
+                              <span class="btn-text share-text">واتساب</span> </button>
+                     </div>
+                  </div>
                  <div class="sidebar-content-wrapper">
-                    <h1 class="sidebar-title" id="title">آلة حاسبة لرسوم الدفع الآجل</h1>
-                    <div class="input-wrapper">
-                        <label for="price" data-key="inputLabel">أدخل سعر المنتج الإجمالي</label>
-                        <input type="text" id="price" inputmode="decimal" placeholder="0.00 ر.س">
-                    </div>
-                </div>
-                <div class="note" id="note">
-                   </div>
+                     <h1 class="sidebar-title" id="title">آلة حاسبة لرسوم الدفع الآجل</h1>
+                     <label for="price" data-key="inputLabel">أدخل سعر الفاتورة الإجمالي</label> <div class="input-wrapper">
+                         <input type="text" id="price" inputmode="decimal" placeholder="0.00 ر.س">
+                         <button type="button" class="clear-input-btn" id="btnClear" aria-label="مسح" title="مسح للخلف / مسح كلي (ضغطة مطولة)" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75L14.25 12m0 0l2.25 2.25M14.25 12l2.25-2.25M14.25 12L12 14.25m-2.58 4.92l-6.375-6.375a1.125 1.125 0 010-1.59L9.42 4.83c.211-.211.498-.33.796-.33H19.5a2.25 2.25 0 012.25 2.25v10.5a2.25 2.25 0 01-2.25 2.25h-9.284c-.298 0-.585-.119-.796-.33z" /></svg>
+                         </button>
+                     </div>
+                     </div>
+                 <div class="note" id="note"></div>
             </aside>
 
             <main class="main-content-area results-section">
-                <div class="cards">
-                    <div class="card" id="tabbyCard">
+                 <div class="cards">
+                    <div class="card" id="providerCard">
                         <div class="card-header">
-                            <h2 data-provider="tabby">تابي (Tabby)</h2>
-                            <img src="https://cdn.salla.sa/BmwbV/Ea1Kx4SfpK2Vy3Lx3aVPvZKBMkSM5dio2eKveTwm.png" alt="شعار تابي">
+                            <h2 data-key="combinedTitle">تابي / تمارا</h2>
+                            <div class="logos-container">
+                                <img src="https://cdn.salla.sa/BmwbV/Ea1Kx4SfpK2Vy3Lx3aVPvZKBMkSM5dio2eKveTwm.png" alt="شعار تابي">
+                                <img src="https://cdn.tamara.co/assets/png/tamara-logo-badge-en.png" alt="شعار تمارا">
+                            </div>
                         </div>
                         <ul class="result">
-                            <li><span class="label" data-key="baseFeeLabel">رسوم الخدمة (7% + 1.5 ر.س)</span> <span class="value info base">0.00 ر.س</span></li>
-                            <li><span class="label" data-key="vatLabel">ضريبة القيمة المضافة (15%)</span> <span class="value info vat">0.00 ر.س</span></li>
-                            <li><span class="label" data-key="totalServiceFeeLabel">إجمالي رسوم الخدمة</span> <span class="value warning serviceFee">0.00 ر.س</span></li>
-                            <li><span class="label" data-key="settlementFeeLabel">رسوم التسوية/التحويل</span> <span class="value warning settlementFee">0.00 ر.س</span></li>
-                            <li><span class="label" data-key="totalAmountDueLabel">المبلغ المطلوب من العميل</span> <span class="value primary charge">0.00 ر.س</span></li>
-                            <li><span class="label" data-key="netProfitLabel">صافي ربح المتجر</span> <span class="value success net">0.00 ر.س</span></li>
+                            <li class="main-result-toggle" data-result-key="totalAmountDue">
+                                <div class="result-row">
+                                    <span class="label" data-key="totalAmountDueLabel">المبلغ المطلوب من العميل</span>
+                                    <div class="value-container">
+                                        <span class="value primary charge" aria-live="polite">0.00 ر.س</span>
+                                        <button type="button" class="toggle-details-button" aria-label="تبديل عرض التفاصيل">
+                                            <span class="toggle-text">...</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="detail-row expandable" data-details-type="baseFee">
+                                <div class="result-row">
+                                    <span class="label" data-key="baseFeeLabel">رسوم الخدمة (7% + 1.5 ر.س)</span>
+                                    <div class="value-container">
+                                        <span class="value info base" aria-live="polite">0.00 ر.س</span>
+                                        <span class="details-icon" aria-hidden="true">
+                                            <svg class="icon-plus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+                                            <svg class="icon-minus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" /></svg>
+                                        </span>
+                                    </div>
+                                </div> <div class="calculation-details"></div> </li>
+                            <li class="detail-row expandable" data-details-type="vat">
+                                <div class="result-row">
+                                    <span class="label" data-key="vatLabel">ضريبة القيمة المضافة (15%)</span>
+                                    <div class="value-container">
+                                        <span class="value info vat" aria-live="polite">0.00 ر.س</span>
+                                        <span class="details-icon" aria-hidden="true">
+                                            <svg class="icon-plus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+                                            <svg class="icon-minus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" /></svg>
+                                        </span>
+                                    </div>
+                                </div> <div class="calculation-details"></div> </li>
+                            <li class="detail-row expandable" data-details-type="totalServiceFee">
+                                <div class="result-row">
+                                    <span class="label" data-key="totalServiceFeeLabel">إجمالي رسوم الخدمة</span>
+                                     <div class="value-container">
+                                        <span class="value warning serviceFee" aria-live="polite">0.00 ر.س</span>
+                                         <span class="details-icon" aria-hidden="true">
+                                            <svg class="icon-plus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+                                            <svg class="icon-minus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" /></svg>
+                                        </span>
+                                    </div>
+                                </div>
+                                 <div class="calculation-details"></div>
+                            </li>
+                            <li class="detail-row expandable" data-details-type="settlementFee">
+                                <div class="result-row">
+                                    <span class="label" data-key="settlementFeeLabel">رسوم التسوية/التحويل</span>
+                                    <div class="value-container">
+                                        <span class="value warning settlementFee" aria-live="polite">0.00 ر.س</span>
+                                        <span class="details-icon" aria-hidden="true">
+                                            <svg class="icon-plus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+                                            <svg class="icon-minus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" /></svg>
+                                        </span>
+                                    </div>
+                                </div> <div class="calculation-details"></div> </li>
+                            <li class="detail-row expandable" data-details-type="netProfit">
+                                <div class="result-row">
+                                    <span class="label" data-key="netProfitLabel">صافي ربح المتجر</span>
+                                     <div class="value-container">
+                                        <span class="value success net" aria-live="polite">0.00 ر.س</span>
+                                         <span class="details-icon" aria-hidden="true">
+                                            <svg class="icon-plus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+                                            <svg class="icon-minus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" /></svg>
+                                        </span>
+                                    </div>
+                                </div>
+                                 <div class="calculation-details"></div> </li>
                         </ul>
-                    </div>
-                    <div class="card" id="tamaraCard">
-                        <div class="card-header">
-                            <h2 data-provider="tamara">تمارا (Tamara)</h2>
-                            <img src="https://cdn.tamara.co/assets/png/tamara-logo-badge-en.png" alt="شعار تمارا">
+                        <div class="fee-visualization">
+                              <div class="viz-bar-label" data-key="vizLabel" id="vizLabelId">تفصيل المبلغ المطلوب من العميل</div>
+                              <div class="viz-bar" role="img" aria-labelledby="vizLabelId">
+                                  <div class="viz-bar-segment viz-bar-profit" title="صافي الربح" style="flex-basis: 100%;"></div>
+                                  <div class="viz-bar-segment viz-bar-fees" title="إجمالي الرسوم" style="flex-basis: 0%;"></div>
+                              </div>
                         </div>
-                        <ul class="result">
-                             <li><span class="label" data-key="baseFeeLabel">رسوم الخدمة (7% + 1.5 ر.س)</span> <span class="value info base">0.00 ر.س</span></li>
-                             <li><span class="label" data-key="vatLabel">ضريبة القيمة المضافة (15%)</span> <span class="value info vat">0.00 ر.س</span></li>
-                             <li><span class="label" data-key="totalServiceFeeLabel">إجمالي رسوم الخدمة</span> <span class="value warning serviceFee">0.00 ر.س</span></li>
-                             <li><span class="label" data-key="settlementFeeLabel">رسوم التسوية/التحويل</span> <span class="value warning settlementFee">0.00 ر.س</span></li>
-                             <li><span class="label" data-key="totalAmountDueLabel">المبلغ المطلوب من العميل</span> <span class="value primary charge">0.00 ر.س</span></li>
-                             <li><span class="label" data-key="netProfitLabel">صافي ربح المتجر</span> <span class="value success net">0.00 ر.س</span></li>
-                        </ul>
                     </div>
-                </div>
+                 </div>
             </main>
         </div>
 
         <footer class="page-footer">
             © <span id="year"></span> الشروق لمواد البناء. جميع الحقوق محفوظة.
         </footer>
-    </div> <script>
+    </div>
+
+     <script>
+         // ==========================================================================
+         //  Calculator Script - v4.23 (EN/AR Text Update: Invoice)
+         // ==========================================================================
          document.addEventListener('DOMContentLoaded', () => {
-            console.log("DOM fully loaded and parsed - v14 (Final Label Fixes)");
+             // --- Elements (Unchanged) ---
+             const priceInput = document.getElementById('price');
+             const btnLang = document.getElementById('btn-lang');
+             const btnTheme = document.getElementById('btn-theme');
+             const btnClear = document.getElementById('btnClear');
+             const btnPrint = document.getElementById('btnPrint');
+             const btnShareWhatsapp = document.getElementById('btnShareWhatsapp');
+             const themeIconWrapper = btnTheme?.querySelector('.theme-icon-wrapper');
+             const langIconWrapper = btnLang?.querySelector('.btn-icon-wrapper');
+             const langTextEl = btnLang?.querySelector('.lang-text');
+             const themeTextEl = btnTheme?.querySelector('.theme-text');
+             const printTextEl = btnPrint?.querySelector('.print-text');
+             const shareTextEl = btnShareWhatsapp?.querySelector('.share-text');
+             const yearEl = document.getElementById('year');
+             const noteEl = document.getElementById('note');
+             const providerCard = document.getElementById('providerCard');
+             const pageBody = document.body;
 
-            // --- Get Elements ---
-            const priceInput = document.getElementById('price');
-            const btnLang = document.getElementById('btn-lang');
-            const btnTheme = document.getElementById('btn-theme');
-            const themeIconWrapper = btnTheme ? btnTheme.querySelector('.theme-icon-wrapper') : null;
-            const langTextEl = btnLang ? btnLang.querySelector('.lang-text') : null;
-            const themeTextEl = btnTheme ? btnTheme.querySelector('.theme-text') : null;
-            const yearEl = document.getElementById('year');
-            const titleEl = document.querySelector('#title');
-            const noteEl = document.querySelector('#note');
-            const cards = document.querySelectorAll('.results-section .card');
-            const pageTitleTarget = document.getElementById('pageTitle');
-            const footerTextEl = document.querySelector('.page-footer');
-            const storeLogo = document.querySelector('#storeLogo');
-            const pageBody = document.body;
+             // --- Icons (Unchanged from v4.22) ---
+             const moonIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-label="وضع ليلي"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>`;
+             const sunIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-label="وضع نهاري"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>`;
+             const languageIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m5 8 6 6"/>
+                  <path d="m4 14 6-6 2-3"/>
+                  <path d="M2 5h12"/>
+                  <path d="M7 2h1"/>
+                  <path d="m22 22-5-10-5 10"/>
+                  <path d="M14 18h6"/>
+                </svg>`;
 
-            // --- SVG Icons ---
-            const moonIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em" aria-label="وضع ليلي"><path d="M10 2c-1.82 0-3.53.5-5 1.35C7.99 5.08 10 8.3 10 12s-2.01 6.92-5 8.65C6.47 21.5 8.18 22 10 22c5.52 0 10-4.48 10-10S15.52 2 10 2z"/></svg>`;
-            const sunIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em" aria-label="وضع نهاري"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM12 4c-0.55 0-1 0.45-1 1v1c0 0.55 0.45 1 1 1s1-0.45 1-1V5c0-0.55-0.45-1-1-1zM4 12c0 0.55-0.45 1-1 1H2c-0.55 0-1-0.45-1-1s0.45-1 1-1h1c0.55 0 1 0.45 1 1zM20 12c0 0.55-0.45 1-1 1h-1c-0.55 0-1-0.45-1-1s0.45-1 1-1h1c0.55 0 1 0.45 1 1zM7.05 7.05c-0.39-0.39-1.02-0.39-1.41 0s-0.39 1.02 0 1.41l0.71 0.71c0.39 0.39 1.02 0.39 1.41 0s0.39-1.02 0-1.41L7.05 7.05zM16.24 16.24c-0.39-0.39-1.02-0.39-1.41 0s-0.39 1.02 0 1.41l0.71 0.71c0.39 0.39 1.02 0.39 1.41 0s0.39-1.02 0-1.41L16.24 16.24zM12 19c-0.55 0-1 0.45-1 1v1c0 0.55 0.45 1 1 1s1-0.45 1-1v-1c0-0.55-0.45-1-1-1zM6.34 16.95l-0.71 0.71c-0.39 0.39-0.39 1.02 0 1.41s1.02 0.39 1.41 0l0.71-0.71c0.39-0.39 0.39-1.02 0-1.41S6.73 16.56 6.34 16.95zM16.95 6.34l0.71-0.71c0.39-0.39 0.39-1.02 0-1.41s-1.02-0.39-1.41 0l-0.71 0.71c-0.39 0.39-0.39 1.02 0-1.41S16.56 6.73 16.95 6.34z"/></svg>`;
-            const langIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>`;
 
-            // --- Localization Strings (Labels reverted to original, Note reverted) ---
+             // *** UPDATED: i18n object with "Invoice" in English ***
              const i18n = {
-                 ar: {
-                     pageTitle: "الشروق لمواد البناء - حاسبة رسوم المتجر",
-                     mainTitle: "آلة حاسبة لرسوم الدفع الآجل",
-                     inputLabel: "أدخل سعر المنتج الإجمالي", // Original Label
-                     pricePlaceholder: "0.00 ر.س",
-                     note: `ملاحظة: للمبالغ من 1 إلى 2499 ر.س رسوم تسوية ثابتة <strong>28.75 ر.س</strong>. للمبالغ من 2500 ر.س فما فوق تطبق رسوم تحويل بنكي قدرها <strong>6 ر.س</strong> فقط لاغير.`, // Original Note
-                     themeToggle: "تغيير السمة", langToggle: "تغيير اللغة", themeNight: "ليلي", themeDay: "نهاري", langSwitchTo: "English",
-                     footer: `© ${new Date().getFullYear()} الشروق لمواد البناء. جميع الحقوق محفوظة.`, currencySuffix: " ر.س",
-                     tabby: "تابي (Tabby)", tamara: "تمارا (Tamara)",
-                     labels: [ // Original labels with VAT fix
-                         'رسوم الخدمة (7% + 1.5 ر.س)',
-                         'ضريبة القيمة المضافة (15%)', // Reverted
-                         'إجمالي رسوم الخدمة',
-                         'رسوم التسوية/التحويل',
-                         'المبلغ المطلوب من العميل',
-                         'صافي ربح المتجر'
-                     ],
-                     labelKeys: [ 'baseFeeLabel', 'vatLabel', 'totalServiceFeeLabel', 'settlementFeeLabel', 'totalAmountDueLabel', 'netProfitLabel' ]
-                 },
-                 en: {
+                 ar: { // Arabic texts are correct from previous version
+                     pageTitle: "الشروق لمواد البناء - حاسبة رسوم المتجر", mainTitle: "آلة حاسبة لرسوم الدفع الآجل", inputLabel: "أدخل سعر الفاتورة الإجمالي", pricePlaceholder: "0.00 ر.س", note: `ملاحظة: للمبالغ من 1 إلى 2499 ر.س رسوم تسوية ثابتة <strong>28.75 ر.س</strong>. للمبالغ من 2500 ر.س فما فوق تطبق رسوم تحويل بنكي قدرها <strong>6 ر.س</strong> فقط لاغير.`, themeToggle: "تغيير السمة", langToggle: "تغيير اللغة", themeNight: "ليلي", themeDay: "نهاري", langSwitchTo: "English", langCurrentShort: "ع", otherLangShort: "EN", otherLangLong: "English", printButtonLabel: "طباعة", shareButtonLabel: "واتساب", shareMessageTemplate: `حاسبة الشروق:\n- سعر المنتج الأصلي: {P} {C}\n- المبلغ المطلوب من العميل (مع الرسوم): {X} {C}`, footer: `© ${new Date().getFullYear()} الشروق لمواد البناء. جميع الحقوق محفوظة.`, currencySuffix: " ر.س", combinedTitle: "تابي / تمارا", clearButtonLabel: "مسح", clearButtonTitle: "مسح للخلف / مسح كلي (ضغطة مطولة)", showDetailsText: "عرض التفاصيل", hideDetailsText: "إخفاء التفاصيل", labels: [ 'رسوم الخدمة (7% + 1.5 ر.س)', 'ضريبة القيمة المضافة (15%)', 'إجمالي رسوم الخدمة', 'رسوم التسوية/التحويل', 'المبلغ المطلوب من العميل', 'صافي ربح المتجر' ], labelKeys: [ 'baseFeeLabel', 'vatLabel', 'totalServiceFeeLabel', 'settlementFeeLabel', 'totalAmountDueLabel', 'netProfitLabel' ], calculationDetails: { baseFee: (x, fee, suffix) => `المعادلة: (المبلغ المطلوب <code>${x}</code> × 7%) + 1.50 = <code>${fee}</code> ${suffix}`, vat: (base, vatFee, suffix) => `المعادلة: (رسوم الخدمة <code>${base}</code> × 15%) = <code>${vatFee}</code> ${suffix}`, settlementFee: (x, fee, suffix) => `المبلغ المطلوب <code>${x}</code> ${x < 2500 ? 'أقل من' : 'أكبر من أو يساوي'} 2500 ر.س، الرسوم المطبقة: <code>${fee}</code> ${suffix}`, totalServiceFee: (base, vat, total, suffix) => `المجموع: رسوم الخدمة (<code>${base}</code>) + الضريبة (<code>${vat}</code>) = <code>${total}</code> ${suffix}`, netProfit: (p, suffix) => `يمثل سعر الفاتورة الأصلي الذي أدخلته: <code>${p}</code> ${suffix}` }, vizLabel: "تفصيل المبلغ المطلوب من العميل", vizProfitTitle: "صافي الربح", vizFeeTitle: "إجمالي الرسوم" },
+                 en: { // English texts updated
                      pageTitle: "Al-Shorouq Building Materials - Merchant Fee Calculator",
                      mainTitle: "Deferred Payment Fee Calculator",
-                     inputLabel: "Enter Base Product Price", // Original Label
+                     inputLabel: "Enter Total Invoice Price", // Changed here
                      pricePlaceholder: "0.00 SAR",
-                     note: `Note: For amounts from 1 to 2499 SAR flat settlement fee is <strong>28.75 SAR</strong>. For amounts 2500 SAR and above bank transfer fee is <strong>6 SAR</strong> only.`, // Original Note
-                     themeToggle: "Change Theme", langToggle: "Change Language", themeNight: "Night", themeDay: "Day", langSwitchTo: "عربي",
-                     footer: `© ${new Date().getFullYear()} Al-Shorouq Building Materials. All rights reserved.`, currencySuffix: " SAR",
-                     tabby: "Tabby", tamara: "Tamara",
-                     labels: [ // Original labels with VAT fix
-                         'Service Fee (7% + 1.5 SAR)',
-                         'VAT (15%)', // Reverted
-                         'Total Service Fees',
-                         'Settlement/Transfer Fee',
-                         'Amount Customer Pays',
-                         'Net Merchant Profit'
-                     ],
-                     labelKeys: [ 'baseFeeLabel', 'vatLabel', 'totalServiceFeeLabel', 'settlementFeeLabel', 'totalAmountDueLabel', 'netProfitLabel' ]
+                     note: `Note: For amounts from 1 to 2499 SAR flat settlement fee is <strong>28.75 SAR</strong>. For amounts 2500 SAR and above bank transfer fee is <strong>6 SAR</strong> only.`,
+                     themeToggle: "Change Theme",
+                     langToggle: "Change Language",
+                     themeNight: "Night",
+                     themeDay: "Day",
+                     langSwitchTo: "عربي",
+                     langCurrentShort: "EN",
+                     otherLangShort: "ع",
+                     otherLangLong: "عربي",
+                     printButtonLabel: "Print",
+                     shareButtonLabel: "WhatsApp",
+                     shareMessageTemplate: `Al-Shorouq Calculator:\n- Original Price: {P} {C}\n- Customer Pays (w/ Fees): {X} {C}`, // Kept original share template
+                     footer: `© ${new Date().getFullYear()} Al-Shorouq Building Materials. All rights reserved.`,
+                     currencySuffix: " SAR",
+                     combinedTitle: "Tabby / Tamara",
+                     clearButtonLabel: "Clear",
+                     clearButtonTitle: "Backspace / Clear All (Long Press)",
+                     showDetailsText: "Show Details",
+                     hideDetailsText: "Hide Details",
+                     labels: [ 'Service Fee (7% + 1.5 SAR)', 'VAT (15%)', 'Total Service Fees', 'Settlement/Transfer Fee', 'Amount Customer Pays', 'Net Merchant Profit' ],
+                     labelKeys: [ 'baseFeeLabel', 'vatLabel', 'totalServiceFeeLabel', 'settlementFeeLabel', 'totalAmountDueLabel', 'netProfitLabel' ],
+                     calculationDetails: {
+                         baseFee: (x, fee, suffix) => `Formula: (Amount Due <code>${x}</code> × 7%) + 1.50 = <code>${fee}</code> ${suffix}`,
+                         vat: (base, vatFee, suffix) => `Formula: (Service Fee <code>${base}</code> × 15%) = <code>${vatFee}</code> ${suffix}`,
+                         settlementFee: (x, fee, suffix) => `Amount Due <code>${x}</code> is ${x < 2500 ? 'less than' : 'greater than or equal to'} 2500 SAR, Applied fee: <code>${fee}</code> ${suffix}`,
+                         totalServiceFee: (base, vat, total, suffix) => `Sum: Service Fee (<code>${base}</code>) + VAT (<code>${vat}</code>) = <code>${total}</code> ${suffix}`,
+                         netProfit: (p, suffix) => `Represents the original invoice price entered: <code>${p}</code> ${suffix}` // Changed here
+                     },
+                     vizLabel: "Customer Payment Breakdown",
+                     vizProfitTitle: "Net Profit",
+                     vizFeeTitle: "Total Fees"
                  }
              };
 
+             // --- State (Unchanged) ---
+             let currentTheme = localStorage.getItem('calculatorThemeFluentV2') || 'light';
+             let currentLang = localStorage.getItem('calculatorLangFluentV2') || 'ar';
+             let currentCalculations = { P: 0, X: 0, baseFee: 0, vat: 0, totalServiceFee: 0, S_final: 0 };
+             let valueUpdateTimers = {};
+             const mobileMediaQuery = window.matchMedia("(max-width: 600px)");
 
-            // --- State ---
-            let currentTheme = localStorage.getItem('calculatorThemeFluentV2') || 'light';
-            let currentLang = localStorage.getItem('calculatorLangFluentV2') || 'ar';
+             // --- Utility Functions (Unchanged) ---
+             const formatNumber = (n) => { const num = Number(n); if (isNaN(num)) { return '0.00'; } const sciThreshold = 1e12; return Math.abs(num) >= sciThreshold ? num.toExponential(2) : num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+             const updateElementText = (selector, text, parent = document) => { const el = parent?.querySelector(selector); if (el) el.textContent = text ?? ''; };
+             const updateElementHTML = (selector, html, parent = document) => { const el = parent?.querySelector(selector); if (el) el.innerHTML = html ?? ''; };
+             const updateAttribute = (selector, attr, value, parent = document) => { const el = parent?.querySelector(selector); if (el) el.setAttribute(attr, value ?? ''); };
+             function triggerValueUpdate(element) { if (!element) return; const key = element.className.split(' ')[1]; clearTimeout(valueUpdateTimers[key]); element.classList.remove('is-updating'); void element.offsetWidth; element.classList.add('is-updating'); valueUpdateTimers[key] = setTimeout(() => { element.classList.remove('is-updating'); }, 500); }
+             function debounce(func, wait) { let timeout; return function executedFunction(...args) { const later = () => { clearTimeout(timeout); func(...args); }; clearTimeout(timeout); timeout = setTimeout(later, wait); }; }
 
-            // --- Core Functions ---
-            function applyTheme() { if(pageBody) pageBody.setAttribute('data-theme', currentTheme); updateThemeButtonVisuals(); }
-            function applyLang() { try { const langData = i18n[currentLang]; if(document.documentElement) { document.documentElement.lang = currentLang; document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr'; } if(pageTitleTarget) pageTitleTarget.textContent = langData.pageTitle; if (titleEl) titleEl.textContent = langData.mainTitle; const priceLabelEl = document.querySelector('.input-wrapper label[for="price"]'); if(priceLabelEl) priceLabelEl.textContent = langData.inputLabel; if(priceInput) priceInput.placeholder = langData.pricePlaceholder; if(noteEl) noteEl.innerHTML = langData.note; if(footerTextEl) { const currentYear = new Date().getFullYear(); const footerBaseText = langData.footer.replace(currentYear.toString(), '').replace('© . ', `© ${currentYear} `); footerTextEl.innerHTML = `${footerBaseText}`; } if (btnLang) btnLang.title = langData.langToggle; if (btnTheme) btnTheme.title = langData.themeToggle; updateLabels(); updateThemeButtonVisuals(); updateLangButtonVisuals(); } catch (error) { console.error("Error during applyLang:", error); } }
-             function updateLabels() { const labels = i18n[currentLang].labels; const labelKeys = i18n[currentLang].labelKeys; if (!cards || !labels || !labelKeys || labels.length !== labelKeys.length) { console.error("Labels or cards data missing or mismatched."); return; } cards.forEach(card => { labelKeys.forEach((key, index) => { const labelEl = card.querySelector(`.label[data-key="${key}"]`); if (labelEl) { labelEl.textContent = labels[index]; } else { console.warn(`Label element with data-key="${key}" not found in card:`, card.id); } }); const h2 = card.querySelector('h2'); const provider = h2?.getAttribute('data-provider'); if(h2 && provider) { h2.textContent = provider === 'tabby' ? i18n[currentLang].tabby : i18n[currentLang].tamara; } }); }
-            function updateThemeButtonVisuals() { if(btnTheme && themeIconWrapper && themeTextEl) { themeIconWrapper.innerHTML = currentTheme === 'light' ? moonIcon : sunIcon; themeTextEl.textContent = currentTheme === 'light' ? i18n[currentLang].themeNight : i18n[currentLang].themeDay; } }
-            function updateLangButtonVisuals() { if (btnLang && langTextEl) { langTextEl.textContent = i18n[currentLang].langSwitchTo; const existingIcon = btnLang.querySelector('svg'); if (!existingIcon) { btnLang.insertAdjacentHTML('afterbegin', langIconSvg); } } }
-            function toggleTheme() { currentTheme = currentTheme === 'light' ? 'dark' : 'light'; localStorage.setItem('calculatorThemeFluentV2', currentTheme); applyTheme(); }
-            function switchLang() { currentLang = (currentLang === 'ar') ? 'en' : 'ar'; localStorage.setItem('calculatorLangFluentV2', currentLang); applyLang(); calculateFees(); }
-            function formatNumber(n) { const num = Number(n); if (isNaN(num)) { return '0.00'; } return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+             // --- Core Functions (Unchanged) ---
+             function applyTheme() { pageBody?.setAttribute('data-theme', currentTheme); updateThemeButtonVisuals(); }
+             function toggleTheme() { currentTheme = currentTheme === 'light' ? 'dark' : 'light'; localStorage.setItem('calculatorThemeFluentV2', currentTheme); applyTheme(); }
+             function switchLang() { currentLang = (currentLang === 'ar') ? 'en' : 'ar'; localStorage.setItem('calculatorLangFluentV2', currentLang); applyLang(); calculateFees(); }
 
-            // --- CALCULATION FUNCTION (v10 Logic - Excludes S from X calc) ---
-             function calculateFees() {
-                 if (!priceInput || !cards) { console.warn("Missing elements for calculateFees"); return; }
-                 const rawValue = priceInput.value.replace(/[^0-9.]/g, '');
-                 const P = parseFloat(rawValue) || 0; // P = Base Product Price
-                 let X = 0; let baseFee = 0; let vat = 0; let totalServiceFee = 0; let S_final = 0;
-                 const fixedFee = 1.5; const serviceRate = 0.07; const vatRate = 0.15;
-                 const feeFactor = (1 + vatRate); const denominator = (1 - serviceRate * feeFactor); const fixedFeeComponent = fixedFee * feeFactor;
-                 if (P > 0 && denominator > 0) {
-                     X = (P + fixedFeeComponent) / denominator; if (X < 0) X = 0;
-                     if (X >= 1) { baseFee = X * serviceRate + fixedFee; vat = baseFee * vatRate; totalServiceFee = baseFee + vat; } else { baseFee = 0; vat = 0; totalServiceFee = 0; X=0; }
-                     if (X < 1) { S_final = 0; } else if (X < 2500) { S_final = 28.75; } else { S_final = 6.00; }
-                 } else { X = P; baseFee = 0; vat = 0; totalServiceFee = 0; S_final = 0; }
-                 const currencySuffix = i18n[currentLang]?.currencySuffix || 'SAR';
-                 cards.forEach(card => {
-                     const baseEl = card.querySelector('.base'); const vatEl = card.querySelector('.vat'); const serviceFeeEl = card.querySelector('.serviceFee'); const settlementFeeEl = card.querySelector('.settlementFee'); const chargeEl = card.querySelector('.charge'); const netEl = card.querySelector('.net');
-                     const updateValue = (el, value) => { if (el) { const formattedValue = formatNumber(value) + currencySuffix; const currentValue = el.textContent; if (currentValue !== formattedValue) { el.textContent = formattedValue; el.classList.remove('updated'); void el.offsetWidth; el.classList.add('updated'); el.addEventListener('animationend', () => { if(el) el.classList.remove('updated'); }, {once: true}); } } else { console.warn("UpdateValue: Target element not found for value:", value); } };
-                     // Apply values, ensuring elements exist
-                     if(baseEl) updateValue(baseEl, baseFee); else console.warn("Base fee element not found");
-                     if(vatEl) updateValue(vatEl, vat); else console.warn("VAT element not found");
-                     if(serviceFeeEl) updateValue(serviceFeeEl, totalServiceFee); else console.warn("Service fee element not found");
-                     if(settlementFeeEl) updateValue(settlementFeeEl, S_final); else console.warn("Settlement fee element not found");
-                     if(chargeEl) updateValue(chargeEl, X); else console.warn("Charge element not found");
-                     if(netEl) updateValue(netEl, P); else console.warn("Net element not found"); // Display original P as net
-                 });
+             // --- Apply Language (Unchanged structure) ---
+             function applyLang() { const langData = i18n[currentLang]; if (!langData || !document.documentElement) return; try { document.documentElement.lang = currentLang; document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr'; updateElementText('#pageTitle', langData.pageTitle); updateElementText('#title', langData.mainTitle); updateElementText('label[for="price"]', langData.inputLabel); updateAttribute('#price', 'placeholder', langData.pricePlaceholder); updateElementHTML('#note', langData.note); const currentYear = new Date().getFullYear(); const footerContent = langData.footer?.replace(/©\s*\d{4}/, `© ${currentYear}`) ?? ''; updateElementHTML('.page-footer', footerContent); updateAttribute('#btn-lang', 'title', langData.langToggle); updateAttribute('#btn-lang', 'aria-label', langData.langToggle); updateAttribute('#btn-theme', 'title', langData.themeToggle); updateAttribute('#btn-theme', 'aria-label', langData.themeToggle); updateAttribute('#btnClear', 'aria-label', langData.clearButtonLabel); updateAttribute('#btnClear', 'title', langData.clearButtonTitle); updateAttribute('#btnPrint', 'aria-label', langData.printButtonLabel); updateAttribute('#btnPrint', 'title', langData.printButtonLabel); updateAttribute('#btnShareWhatsapp', 'aria-label', langData.shareButtonLabel); updateAttribute('#btnShareWhatsapp', 'title', langData.shareButtonLabel); updateLabelsAndInteractiveElements(langData); updateThemeButtonVisuals(langData); updateLangButtonVisuals(langData);
+                 providerCard?.querySelectorAll('.result li.expanded, .result li.details-expanded').forEach(updateCalculationDetails); updateToggleDetailsButtonText(); } catch (error) { console.error("Error applying language:", error); } }
+             // --- Update UI Labels/Text (Unchanged) ---
+             function updateLabelsAndInteractiveElements(langData) { if (!langData || !providerCard) return; const { labels, labelKeys, combinedTitle, vizLabel, vizProfitTitle, vizFeeTitle, printButtonLabel, shareButtonLabel } = langData; updateElementText('.card-header h2[data-key="combinedTitle"]', combinedTitle, providerCard); labelKeys?.forEach((key, index) => { if (labels?.[index]) { const el = providerCard.querySelector(`.label[data-key="${key}"]`); if (el) { const textNode = Array.from(el.childNodes).find(n => n.nodeType === Node.TEXT_NODE && n.nodeValue.trim() !== ''); if (textNode) textNode.nodeValue = labels[index] + ' '; else el.textContent = labels[index] + ' '; } } }); updateElementText('.viz-bar-label', vizLabel, providerCard); updateElementText('#vizLabelId', vizLabel); updateAttribute('.viz-bar-profit', 'title', vizProfitTitle, providerCard); updateAttribute('.viz-bar-fees', 'title', vizFeeTitle, providerCard); updateElementText('#btnPrint .print-text', printButtonLabel); updateElementText('#btnShareWhatsapp .share-text', shareButtonLabel); }
+             // Update Theme Button Visuals (Unchanged)
+             function updateThemeButtonVisuals(langData = i18n[currentLang]) { if (themeIconWrapper && themeTextEl && langData) { themeIconWrapper.innerHTML = currentTheme === 'light' ? sunIcon : moonIcon; themeTextEl.textContent = currentTheme === 'light' ? langData.themeNight : langData.themeDay; } }
+
+             // Update Lang Button Visuals (Unchanged logic from v4.22)
+             function updateLangButtonVisuals(langData = i18n[currentLang]) {
+                 if (btnLang && langIconWrapper && langTextEl && langData) {
+                     if (langIconWrapper.innerHTML !== languageIconSvg) {
+                         langIconWrapper.innerHTML = languageIconSvg;
+                     }
+                     const isMobileView = mobileMediaQuery.matches;
+                     if (isMobileView) {
+                         langTextEl.textContent = langData.otherLangShort;
+                     } else {
+                         langTextEl.textContent = langData.otherLangLong;
+                     }
+                 }
              }
 
+             // --- Update Main Toggle Button Text (Unchanged) ---
+             function updateToggleDetailsButtonText() { const mainToggle=providerCard?.querySelector('.main-result-toggle'); const buttonText=mainToggle?.querySelector('.toggle-details-button .toggle-text'); const langData=i18n[currentLang]; if(buttonText&&mainToggle&&langData){ const text=mainToggle.classList.contains('details-expanded')?langData.hideDetailsText:langData.showDetailsText; buttonText.textContent=text; buttonText.closest('button')?.setAttribute('aria-label', text); } }
 
-            // --- Event Listeners ---
-            if (priceInput) { priceInput.addEventListener('blur', () => { const num = parseFloat(priceInput.value.replace(/[^0-9.]/g, '')) || 0; priceInput.value = num > 0 ? formatNumber(num) : ''; calculateFees(); }); priceInput.addEventListener('input', calculateFees); priceInput.addEventListener('focus', () => { priceInput.select(); }); priceInput.addEventListener('keypress', (event) => { if (event.key === 'Enter') { event.preventDefault(); calculateFees(); priceInput.blur(); } }); } else { console.error("Price input not found"); }
-            if(btnTheme) { btnTheme.addEventListener('click', toggleTheme); } else { console.error("Theme button not found"); }
-            if(btnLang) { btnLang.addEventListener('click', switchLang); } else { console.error("Lang button not found"); }
+             // --- Calculation Logic (Unchanged) ---
+             function performCalculations(P) { let X=0,bF=0,v=0,tSF=0,sF=0;const fFee=1.5,sR=0.07,vR=0.15,fF=1+vR,den=1-sR*fF,fFC=fFee*fF;const vP=Math.max(0,Number(P)||0);if(vP>0&&den>0){X=(vP+fFC)/den;X=Math.max(vP,X);if(X>=1){bF=X*sR+fFee;v=bF*vR;tSF=bF+v;sF=(X<2500)?28.75:6.00}else{X=vP;sF=(X<2500&&X>=1)?28.75:(X>=2500?6.00:0)}}else{X=vP}return{P:vP,X:Math.max(0,X),baseFee:Math.max(0,bF),vat:Math.max(0,v),totalServiceFee:Math.max(0,tSF),S_final:Math.max(0,sF)}}
 
-            // --- Initial Setup ---
-            if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
-            applyTheme(); applyLang(); calculateFees();
+             // --- Update UI (Unchanged) ---
+             function updateUIWithCalculations() { if (!providerCard || !priceInput) return; const { P, X, baseFee, vat, totalServiceFee, S_final } = currentCalculations; const langData = i18n[currentLang]; const suffix = langData?.currencySuffix || 'SAR'; const updateValueField = (sel, newValue) => { const el = providerCard.querySelector(sel); if (el) { const fmt=formatNumber(newValue); const disp=fmt.includes('e')?fmt:`${fmt}${suffix}`; if (el.textContent !== disp) { el.textContent = disp; triggerValueUpdate(el); } el.dataset.rawValue = newValue; }}; updateValueField('.base', baseFee); updateValueField('.vat', vat); updateValueField('.serviceFee', totalServiceFee); updateValueField('.settlementFee', S_final); updateValueField('.charge', X); updateValueField('.net', P); const totalFees = totalServiceFee + S_final; const pP = X > 0 ? (P / X * 100) : (P > 0 ? 100 : 0); const fP = X > 0 ? (totalFees / X * 100) : 0; const sP = Math.min(100, Math.max(0, pP)); const sF = Math.min(100, Math.max(0, fP)); updateAttribute('.viz-bar-profit', 'style', `flex-basis: ${sP}%`, providerCard); updateAttribute('.viz-bar-fees', 'style', `flex-basis: ${sF}%`, providerCard); providerCard.querySelectorAll('.result li.expanded, .result li.details-expanded').forEach(updateCalculationDetails); updateClearButtonState(); }
 
-            // Apply Staggered Animations
-            const sidebarEl = document.querySelector('.sidebar'); const mainContentEl = document.querySelector('.main-content-area'); const cardsList = document.querySelectorAll('.results-section .card');
-            if (sidebarEl) sidebarEl.style.animationDelay = '0.1s'; if (mainContentEl) mainContentEl.style.animationDelay = '0.25s'; if (cardsList) cardsList.forEach((el, index) => { el.style.animationDelay = `${0.35 + index * 0.1}s`; });
+             // --- Main Calculation Trigger (Unchanged) ---
+             function calculateFees() { const raw = priceInput?.value.replace(/[^0-9.]/g, ''); const P_in = parseFloat(raw) || 0; currentCalculations = performCalculations(P_in); updateUIWithCalculations(); }
 
-            // Add visually hidden class definition
-             try { const styleEl = document.createElement('style'); document.head.appendChild(styleEl); styleEl.sheet.insertRule('.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }', 0); } catch (e) { console.warn("Could not insert visually-hidden rule via JS:", e); }
-        });
-    </script>
+             // --- Clear Button State (Unchanged) ---
+             function updateClearButtonState() { if (!btnClear || !priceInput) return; const hasContent = priceInput.value.replace(/[^0-9.]/g, '').length > 0; btnClear.disabled = !hasContent; }
+
+             // --- Details Update (Uses updated i18n object) ---
+             function updateCalculationDetails(listItem) {
+                 if (!listItem || listItem.classList.contains('main-result-toggle')) return;
+                 const type = listItem.dataset.detailsType;
+                 const container = listItem.querySelector('.calculation-details');
+                 const langData = i18n[currentLang];
+                 const func = langData?.calculationDetails?.[type];
+
+                 if (container) container.innerHTML = '';
+
+                 if (func && container && langData) {
+                     let html = '';
+                     const { P, X, baseFee, vat, totalServiceFee, S_final } = currentCalculations;
+                     const suffix = langData.currencySuffix || 'SAR';
+                     const fX = formatNumber(X), fB = formatNumber(baseFee), fV = formatNumber(vat), fS = formatNumber(S_final), fTSF = formatNumber(totalServiceFee), fP = formatNumber(P);
+                     try {
+                         switch (type) {
+                             case 'baseFee': html = func(fX, fB, suffix); break;
+                             case 'vat': html = func(fB, fV, suffix); break;
+                             case 'settlementFee': html = func(X, fS, suffix); break;
+                             case 'totalServiceFee': html = func(fB, fV, fTSF, suffix); break;
+                             case 'netProfit': html = func(fP, suffix); break; // Will use updated text in both languages
+                         }
+                         container.innerHTML = html;
+                     } catch (e) {
+                         console.error("Details err:", e);
+                         container.innerHTML = '';
+                     }
+                 }
+             }
+
+             // --- Event Listener Setup (Unchanged) ---
+             function setupEventListeners() {
+                 // Price Input (Unchanged)
+                 if (priceInput) { priceInput.addEventListener('blur', () => { const raw = priceInput.value.replace(/[^0-9.]/g, ''); const num = parseFloat(raw) || 0; priceInput.value = num > 0 ? formatNumber(num) : ''; calculateFees(); }); priceInput.addEventListener('input', calculateFees); priceInput.addEventListener('focus', () => { const raw = priceInput.value.replace(/[^0-9.]/g, ''); priceInput.value = raw; priceInput.select(); updateClearButtonState(); }); priceInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); priceInput.blur(); } }); }
+                 // Controls (Unchanged)
+                 btnTheme?.addEventListener('click', toggleTheme); btnLang?.addEventListener('click', switchLang); btnPrint?.addEventListener('click', () => window.print());
+                 // Share (Unchanged)
+                 btnShareWhatsapp?.addEventListener('click', () => { try { const lang = i18n[currentLang]; if (!lang) throw new Error("Lang"); const { P, X } = currentCalculations; const cur = lang.currencySuffix?.trim() ?? 'SAR'; const f = (n)=>{const fm=formatNumber(n); return fm.includes('e')?fm:`${fm} ${cur}`}; const pF=f(P), xF=f(X); const msg = lang.shareMessageTemplate?.replace('{P}',pF)?.replace('{X}',xF)?.replace(/{C}/g,cur)??`Calc: P=${pF}, X=${xF}`; window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer'); } catch (e) { console.error("Share err:", e); alert("Share failed."); } });
+                 // Clear Button (Unchanged)
+                 if (btnClear && priceInput) { let timer=null, isLong=false; const dur=500; const del=()=>{if(btnClear.disabled) return; const v=priceInput.value;if(v.length>0){priceInput.value=v.slice(0,-1);calculateFees();}}; const clear=()=>{if(btnClear.disabled) return; priceInput.value='';calculateFees(); }; const start=(e)=>{e.preventDefault();if(btnClear.disabled) return; isLong=false;clearTimeout(timer);timer=setTimeout(()=>{isLong=true;clear();if(navigator.vibrate)navigator.vibrate(50);},dur);}; const end=(e)=>{e.preventDefault();if(btnClear.disabled) return; clearTimeout(timer);if(!isLong)del();}; const cancel=()=>{clearTimeout(timer);}; btnClear.addEventListener('mousedown',start);btnClear.addEventListener('mouseup',end);btnClear.addEventListener('mouseleave',cancel);btnClear.addEventListener('touchstart',start,{passive:false});btnClear.addEventListener('touchend',end);btnClear.addEventListener('touchcancel',cancel);btnClear.addEventListener('contextmenu',(e)=>e.preventDefault()); }
+                 // Expand Delegation (Unchanged)
+                 providerCard?.addEventListener('click', (event) => { const targetLi = event.target.closest('li'); if (!targetLi) return; if (targetLi.classList.contains('main-result-toggle') && event.target.closest('.result-row, .toggle-details-button')) { targetLi.classList.toggle('details-expanded'); updateToggleDetailsButtonText(); } else if (targetLi.classList.contains('expandable') && targetLi.classList.contains('detail-row')) { if (event.target.closest('.result-row')) { targetLi.classList.toggle('expanded'); if (targetLi.classList.contains('expanded')) { updateCalculationDetails(targetLi); } } } });
+
+                 // Media Query Listener (Unchanged)
+                 mobileMediaQuery.addEventListener('change', debounce(() => {
+                     updateLangButtonVisuals();
+                 }, 150));
+             }
+
+             // --- Initialization (Unchanged) ---
+             function initialize() {
+                 if (yearEl) yearEl.textContent = new Date().getFullYear();
+                 calculateFees();
+                 applyTheme();
+                 applyLang(); // Calls applyLang which uses the updated i18n object
+                 setupEventListeners();
+
+                 // Animations (Unchanged)
+                 const sidebarEl = document.querySelector('.sidebar');
+                 const mainContentEl = document.querySelector('.main-content-area');
+                 const cardEl = document.querySelector('.card');
+                 if (sidebarEl) sidebarEl.style.animationDelay = '0.1s';
+                 if (mainContentEl) mainContentEl.style.animationDelay = '0.2s';
+                 if (cardEl) cardEl.style.animationDelay = '0.25s';
+             }
+
+             // Run Init
+             initialize();
+         });
+     </script>
 
 </body>
 </html>
